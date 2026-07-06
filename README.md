@@ -19,17 +19,26 @@ field).
 
 Plus the original static templates (`pvp`, `transfer[days]`, `hundo`, ...).
 
-## Files
+## Architecture: compiled at build time
 
-- `transcode.py` — data + generator. All curated layers live here:
-  `BEST` (GO Hub rankings, pasted verbatim), `BUDGET` (budget infographic
-  transcription), `EXTRA_SETS` (contested/co-equal sets and non-legacy
-  fallbacks), `EXTRA_LEARNABLE` (learnability guards), `GO_MOVES` (full move
-  inventory for prefix safety).
-- `new.java` — the generated single-file Tasker BeanShell module. The block
-  between the GENERATED markers is machine-written; the rest is runtime.
-- `acceptance.py` — prints the exact expansion for any shortcut (parses the
-  data straight out of new.java): `python3 acceptance.py raid-dragon-steel`
+All packing logic — type-chart cancellation, best/budget tier interleave,
+implication clauses, learnability guards, shadow/mega form clauses, legacy
+fallbacks, move-prefix shortening, field-length budgeting — runs **on your
+computer** in `transcode.py`, which bakes the final search string for every
+possible command (all 18 single types, all 153 dual combinations, atk/attkr)
+into `new.java`. The phone-side BeanShell is a thin dispatcher: map lookup,
+CP-clause append, `raidn-` Nth pick, and the classic `{DAYS:n}` templates.
+
+- `transcode.py` — data + compiler. Curated layers: `BEST` (GO Hub rankings,
+  pasted verbatim), `BUDGET` (budget infographic transcription), `EXTRA_SETS`
+  (contested/co-equal sets and non-legacy fallbacks), `EXTRA_LEARNABLE`
+  (learnability guards), `GO_MOVES` (move inventory for prefix safety), and
+  the type chart.
+- `new.java` — the generated single-file Tasker module (paste into a Tasker
+  Java Function action). The block between the GENERATED markers is
+  machine-written.
+- `acceptance.py` — prints the exact expansion for any shortcut, parsed
+  straight out of new.java: `python3 acceptance.py raid-dragon-steel`
 - `old.java` — the original pre-raid module, kept as reference.
 
 ## Meta update workflow
@@ -40,5 +49,20 @@ Plus the original static templates (`pvp`, `transfer[days]`, `hundo`, ...).
 3. `python3 acceptance.py <commands you care about>` to inspect.
 4. Paste `new.java` into the Tasker Java Function action.
 
-Images (`budget.webp`, `operators.jpg`) are third-party artwork and are
-gitignored; their factual content is transcribed in `transcode.py`.
+## Credits & disclosure
+
+- Built with AI assistance (Anthropic's Claude): the search-grammar
+  reverse-engineering, the CNF implication-clause encoding, the build-time
+  compiler, and the verification harness were developed iteratively with
+  on-device test results feeding back into the design.
+- The accessibility-based approach this module relies on (reacting to text
+  in other apps' input fields and writing back via accessibility actions
+  from Tasker's Java support) builds on capabilities introduced in the
+  [Tasker 6.6.12 release candidate](https://old.reddit.com/r/tasker/comments/1p1etf6/dev_tasker_6612_release_candidate_full/)
+  by João Dias (joaomgcd).
+- Rankings sourced from [Pokémon GO Hub's DB](https://db.pokemongohub.net/best/attackers-per-type)
+  and DialgaDex's "Top Basic Raid Attackers" infographic (data transcribed
+  as facts; the source images are not distributed with this repo).
+
+Images (`budget.webp`, `operators.jpg`) and saved web pages are third-party
+content and gitignored; their factual content is transcribed in `transcode.py`.

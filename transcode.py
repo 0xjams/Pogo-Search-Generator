@@ -74,6 +74,39 @@ TYPES = ["normal", "fire", "water", "electric", "grass", "ice", "fighting",
          "poison", "ground", "flying", "psychic", "bug", "rock", "ghost",
          "dragon", "dark", "steel", "fairy"]
 
+MAX_SEARCH_LEN = 200  # in-game search field limit (community figure)
+CP_RESERVE = 8        # len("&cp9999-"); the runtime clamps [CP] to 9999
+
+# Pokemon GO type chart (validated). Space-separated attack types.
+WEAK_TO = {
+    "normal": "fighting", "fire": "water ground rock",
+    "water": "electric grass", "electric": "ground",
+    "grass": "fire ice poison flying bug", "ice": "fire fighting rock steel",
+    "fighting": "flying psychic fairy", "poison": "ground psychic",
+    "ground": "water grass ice", "flying": "electric ice rock",
+    "psychic": "bug ghost dark", "bug": "fire flying rock",
+    "rock": "water grass fighting ground steel", "ghost": "ghost dark",
+    "dragon": "ice dragon fairy", "dark": "fighting bug fairy",
+    "steel": "fire fighting ground", "fairy": "poison steel",
+}
+RESISTS_FROM = {
+    "fire": "fire grass ice bug steel fairy", "water": "fire water ice steel",
+    "electric": "electric flying steel", "grass": "water electric grass ground",
+    "ice": "ice", "fighting": "bug rock dark",
+    "poison": "grass fighting poison bug fairy", "ground": "poison rock",
+    "flying": "grass fighting bug", "psychic": "fighting psychic",
+    "bug": "grass fighting ground", "rock": "normal fire poison flying",
+    "ghost": "poison bug", "dragon": "fire water grass electric",
+    "dark": "ghost dark",
+    "steel": "normal grass ice flying psychic bug rock dragon steel fairy",
+    "fairy": "fighting bug dark",
+}
+IMMUNE_TO = {
+    "normal": "ghost", "ghost": "normal fighting", "dark": "psychic",
+    "fairy": "dragon", "flying": "ground", "ground": "electric",
+    "steel": "poison",
+}
+
 # ------------------------------------------------------------ GO Hub BEST --
 # (display name, fast, charged) verbatim from the site, rank order.
 # Moves are kept for documentation only -- the search grammar cannot pin them.
@@ -794,26 +827,198 @@ def build_buckets():
     return best, budget
 
 
+# ---------------------------------------------------- build-time packer --
+# The full expansion algorithm now runs HERE at build time; the phone-side
+# BeanShell only does map lookups (plus the tiny raidn/DAYS/CP logic).
+
+def compute_se(boss_types):
+    """SE attack types vs a 1- or 2-type boss; double-SE first."""
+    if len(boss_types) == 1:
+        return WEAK_TO[boss_types[0]].split(" ")
+    double_se, single_se = [], []
+    for atk in TYPES:
+        product = 1.0
+        for d in boss_types:
+            if atk in IMMUNE_TO.get(d, "").split():
+                product *= 0.390625
+            elif atk in WEAK_TO.get(d, "").split():
+                product *= 1.6
+            elif atk in RESISTS_FROM.get(d, "").split():
+                product *= 0.625
+        if product >= 2.5:
+            double_se.append(atk)
+        elif product >= 1.5:
+            single_se.append(atk)
+    return double_se + single_se
+
+
+def interleave(se_types, best, budget):
+    """Round-robin across SE buckets; per round, best tier then budget."""
+    best_arrs = [best.get(t, []) for t in se_types]
+    budget_arrs = [budget.get(t, []) for t in se_types]
+    max_rounds = max((len(a) for a in best_arrs + budget_arrs), default=0)
+    entries, seen = [], set()
+    for r in range(max_rounds):
+        for a1, a2 in zip(best_arrs, budget_arrs):
+            for arr in (a1, a2):
+                if r < len(arr) and arr[r] not in seen:
+                    seen.add(arr[r])
+                    entries.append(arr[r])
+    return entries
+
+
+def learn_extra_tokens():
+    out = {}
+    for sp, moves in EXTRA_LEARNABLE.items():
+        toks = [tk for tk in (norm_move(m) for m in moves) if tk]
+        if toks:
+            out[sp] = "|" + "|".join(toks) + "|"
+    return out
+
+
+def assemble_exact(se_types, best, budget, extras_tok, limit):
+    """Species clause + global fast/charged clauses + conflict-only
+    implication clauses + form clauses, greedily packed to `limit`."""
+    entries = interleave(se_types, best, budget)
+    sp_order, sp_fasts, sp_chargeds, sp_forms = [], {}, {}, {}
+    assembled = None
+
+    def build():
+        g_fasts, g_chargeds = [], []
+        for xs in sp_order:
+            for m in sp_fasts[xs]:
+                if m not in g_fasts:
+                    g_fasts.append(m)
+            for m in sp_chargeds[xs]:
+                if m not in g_chargeds:
+                    g_chargeds.append(m)
+        parts = [",".join(sp_order),
+                 ",".join("@" + m for m in g_fasts),
+                 ",".join("@" + m for m in g_chargeds)]
+        for xs in sp_order:
+            extras = extras_tok.get(xs, "")
+            if any(f"|{m}|" in extras for m in g_fasts):
+                parts.append("!" + xs + "".join(",@" + m for m in sp_fasts[xs]))
+            if any(f"|{m}|" in extras for m in g_chargeds):
+                parts.append("!" + xs + "".join(",@" + m for m in sp_chargeds[xs]))
+            if "b" not in sp_forms[xs]:
+                clause = "!" + xs
+                if "s" in sp_forms[xs]:
+                    clause += ",shadow"
+                if "m" in sp_forms[xs]:
+                    clause += ",megaevolve,mega"
+                if clause != "!" + xs:
+                    parts.append(clause)
+        return "&".join(parts)
+
+    pending = list(entries)
+    progress = True
+    while progress:
+        progress = False
+        still = []
+        for entry in pending:
+            s, f, c, tag = (entry.split("~") + ["b"])[:4]
+            is_new = s not in sp_fasts
+            prev_forms = set(sp_forms.get(s, set()))
+            if is_new:
+                sp_order.append(s)
+                sp_fasts[s], sp_chargeds[s] = [], []
+                sp_forms[s] = set()
+            sp_forms[s].update(tag)
+            added_f = f not in sp_fasts[s] and (sp_fasts[s].append(f) or True)
+            added_c = c not in sp_chargeds[s] and (sp_chargeds[s].append(c) or True)
+            candidate = build()
+            if len(candidate) <= limit:
+                assembled = candidate
+                progress = True
+            else:
+                still.append(entry)
+                if added_f:
+                    sp_fasts[s].pop()
+                if added_c:
+                    sp_chargeds[s].pop()
+                if is_new:
+                    sp_order.pop()
+                    del sp_fasts[s], sp_chargeds[s], sp_forms[s]
+                else:
+                    sp_forms[s] = prev_forms
+        pending = still
+
+    if assembled is None:
+        return ",".join("@" + t for t in se_types)
+    return assembled
+
+
+def assemble_attkr(atk_type, best, budget, limit):
+    """Every vouched species of one type that carries a type move."""
+    specs = []
+    for e in interleave([atk_type], best, budget):
+        s = e.split("~")[0]
+        if s not in specs:
+            specs.append(s)
+    suffix = "&@" + atk_type
+    while specs:
+        cand = ",".join(specs) + suffix
+        if len(cand) <= limit:
+            return cand
+        specs.pop()
+    return "@" + atk_type
+
+
+def build_se_map():
+    """Canonical typePart -> SE list, for all single types and all
+    lexicographically-sorted dual pairs (the cancellation is symmetric)."""
+    se_map = {}
+    for t in TYPES:
+        se_map[t] = compute_se([t])
+    for a, b in ((a, b) for a in sorted(TYPES) for b in sorted(TYPES) if a < b):
+        se = compute_se([a, b])
+        if se:
+            se_map[f"{a}-{b}"] = se
+    return se_map
+
+
 def emit_block(best, budget, indent=" " * 8):
+    extras_tok = learn_extra_tokens()
+    se_map = build_se_map()
+
+    expansions, cpx = {}, {}
+    for canon, se in se_map.items():
+        full = assemble_exact(se, best, budget, extras_tok, MAX_SEARCH_LEN)
+        cpv = assemble_exact(se, best, budget, extras_tok,
+                             MAX_SEARCH_LEN - CP_RESERVE)
+        expansions["raid-" + canon] = full
+        if cpv != full:
+            cpx["raid-" + canon] = cpv
+    for t in TYPES:
+        full = assemble_exact([t], best, budget, extras_tok, MAX_SEARCH_LEN)
+        cpv = assemble_exact([t], best, budget, extras_tok,
+                             MAX_SEARCH_LEN - CP_RESERVE)
+        expansions["atk-" + t] = full
+        if cpv != full:
+            cpx["atk-" + t] = cpv
+        full = assemble_attkr(t, best, budget, MAX_SEARCH_LEN)
+        cpv = assemble_attkr(t, best, budget, MAX_SEARCH_LEN - CP_RESERVE)
+        expansions["attkr-" + t] = full
+        if cpv != full:
+            cpx["attkr-" + t] = cpv
+
     lines = [indent + BEGIN_MARK]
-    lines.append(indent + "/* Entries are species~fast~charged~formtags in rank order ('~' is")
-    lines.append(indent + f" * internal). topByType = GO Hub best (top {ATTACKERS_PER_TYPE}, 2026-07-06);")
-    lines.append(indent + " * budgetByType = budget.webp (DialgaDex, Jul 2026). learnExtra =")
-    lines.append(indent + " * pool moves a species can learn beyond its vouched rows; a")
-    lines.append(indent + " * per-species clause is emitted only on such conflicts. */")
+    lines.append(indent + "/* PRECOMPILED by transcode.py -- the packing algorithm runs at")
+    lines.append(indent + " * build time. expansions = final search string per command key;")
+    lines.append(indent + " * cpx = repacked variant leaving room for a runtime &cpN- clause")
+    lines.append(indent + " * (present only where it differs). seTypes + topByType/budgetByType")
+    lines.append(indent + " * (species~fast~charged~formtags) feed the tiny raidn- runtime. */")
+    for canon in se_map:
+        lines.append(f'{indent}seTypes.put("{canon}", "{" ".join(se_map[canon])}");')
     for t in TYPES:
         lines.append(f'{indent}topByType.put("{t}", "{",".join(best[t])}");')
     for t in TYPES:
         lines.append(f'{indent}budgetByType.put("{t}", "{",".join(budget[t])}");')
-    baked_species = {e.split("~")[0] for tbl in (best, budget)
-                     for es in tbl.values() for e in es}
-    for sp in sorted(EXTRA_LEARNABLE):
-        if sp not in baked_species:
-            continue
-        toks = [norm_move(m) for m in EXTRA_LEARNABLE[sp]]
-        toks = [tk for tk in toks if tk]
-        if toks:
-            lines.append(f'{indent}learnExtra.put("{sp}", "|{"|".join(toks)}|");')
+    for k in expansions:
+        lines.append(f'{indent}expansions.put("{k}", "{expansions[k]}");')
+    for k in cpx:
+        lines.append(f'{indent}cpx.put("{k}", "{cpx[k]}");')
     lines.append(indent + END_MARK)
     return "\n".join(lines)
 
