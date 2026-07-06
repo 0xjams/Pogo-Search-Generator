@@ -1,0 +1,14 @@
+# Third-party content (copyrighted; the factual data lives in transcode.py)
+budget.webp
+operators.jpg
+*.webp
+*.jpg
+*.jpeg
+*.png
+Best Attackers Per Type*
+*_files/
+
+# Local scratch
+__pycache__/
+*.pyc
+.DS_Store
