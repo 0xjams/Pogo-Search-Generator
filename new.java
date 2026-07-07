@@ -1,37 +1,6 @@
-/*
- * PoGo Search Text Expander -- Tasker BeanShell module (PRECOMPILED).
- *
- * Command family (strictness ladder):
- *   @#attkr-fairy.          every vouched fairy attacker (loose view)
- *   @#raid-fire.            balanced counters for a single-type boss
- *   @#raid-dragon-steel.    same for a dual-type boss (chart-aware)
- *   @#atk-fairy.            ONE attack-type bucket, exact optimal builds
- *   @#raidn-dragon-steel[2] EXACT query for the 2nd-ranked counter
- *   [CP] on attkr/raid/atk = CP floor, e.g. @#raid-fire[2500]
- *
- * ALL packing logic (type-chart cancellation, tier interleave, implication
- * clauses, learnability guards, form clauses, legacy fallbacks, prefix
- * shortening, 200-char budgeting) runs at BUILD time in transcode.py. The
- * generated block below holds the final search string per command key:
- *   expansions  command key -> search string (fits the field)
- *   cpx         repacked variant with room for a runtime &cpN- clause
- *               (only where it differs from the full string)
- *   seTypes     canonical type-part -> SE attack types (raidn- only)
- *   topByType / budgetByType  species~fast~charged~formtags entries
- *               per attack type (raidn- only)
- * This file is regenerated with: python3 transcode.py --apply new.java
- * Runtime logic here is just: template DAYS expansion, map lookup with CP
- * append (clamped to 9999 to fit the reserved room), and the raidn- Nth
- * pick. Dual-type keys are canonicalized by lexicographic sort, so
- * raid-steel-dragon finds raid-dragon-steel's string.
- *
- * Search grammar facts these strings rely on (verified on device 2026-07):
- * ','/':'/';' are OR, '&'/'|' are AND, OR evaluates before AND, no
- * parentheses, '!' negates one term, @move matches by name PREFIX, and
- * moves with apostrophes use the typographic U+2019 in-game.
- *
- * All original static templates and the {DAYS:n} logic are unchanged.
- */
+/* PoGo Search Expander for Tasker. Generated -- regen with:
+ * python3 transcode.py --apply new.java
+ * Docs: github.com/0xjams/Pogo-Search-Generator */
 import io.reactivex.functions.Consumer;
 import android.view.accessibility.AccessibilityNodeInfo;
 import java.util.Map;
