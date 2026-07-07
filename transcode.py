@@ -33,6 +33,8 @@ Usage:
 """
 
 import argparse
+import base64
+import gzip
 import re
 
 # ---------------------------------------------------------------- tunables --
@@ -1003,24 +1005,37 @@ def emit_block(best, budget, indent=" " * 8):
         if cpv != full:
             cpx["attkr-" + t] = cpv
 
-    lines = [indent + BEGIN_MARK]
-    lines.append(indent + "/* PRECOMPILED by transcode.py -- the packing algorithm runs at")
-    lines.append(indent + " * build time. expansions = final search string per command key;")
-    lines.append(indent + " * cpx = repacked variant leaving room for a runtime &cpN- clause")
-    lines.append(indent + " * (present only where it differs). seTypes + topByType/budgetByType")
-    lines.append(indent + " * (species~fast~charged~formtags) feed the tiny raidn- runtime. */")
+    # Serialize all maps into one TSV payload, gzip it (the strings are
+    # highly repetitive, ~5x), and bake a base64 blob the runtime inflates.
+    # Keeps the Tasker paste small; baked.tsv is the human-readable twin.
+    rows = []
     for canon in se_map:
-        lines.append(f'{indent}seTypes.put("{canon}", "{" ".join(se_map[canon])}");')
+        rows.append(f"s\t{canon}\t{' '.join(se_map[canon])}")
     for t in TYPES:
-        lines.append(f'{indent}topByType.put("{t}", "{",".join(best[t])}");')
+        rows.append(f"t\t{t}\t{','.join(best[t])}")
     for t in TYPES:
-        lines.append(f'{indent}budgetByType.put("{t}", "{",".join(budget[t])}");')
+        rows.append(f"b\t{t}\t{','.join(budget[t])}")
     for k in expansions:
-        lines.append(f'{indent}expansions.put("{k}", "{expansions[k]}");')
+        rows.append(f"e\t{k}\t{expansions[k]}")
     for k in cpx:
-        lines.append(f'{indent}cpx.put("{k}", "{cpx[k]}");')
+        rows.append(f"c\t{k}\t{cpx[k]}")
+    payload = "\n".join(rows)
+    blob = base64.b64encode(
+        gzip.compress(payload.encode("utf-8"), 9, mtime=0)).decode()
+    chunks = [blob[i:i + 96] for i in range(0, len(blob), 96)]
+
+    lines = [indent + BEGIN_MARK]
+    lines.append(indent + "/* PRECOMPILED by transcode.py: all command expansions plus the")
+    lines.append(indent + " * raidn- data, as gzip+base64 TSV (rows: kind<TAB>key<TAB>value;")
+    lines.append(indent + " * kinds e=expansions c=cpx s=seTypes t=topByType b=budgetByType).")
+    lines.append(indent + " * Human-readable twin: baked.tsv in the repo. */")
+    lines.append(indent + "String DATA_B64 =")
+    for i, ch in enumerate(chunks):
+        prefix = '      "' if i == 0 else '    + "'
+        suffix = '";' if i == len(chunks) - 1 else '"'
+        lines.append(f"{indent}{prefix}{ch}{suffix}")
     lines.append(indent + END_MARK)
-    return "\n".join(lines)
+    return "\n".join(lines), payload
 
 
 def main():
@@ -1029,7 +1044,7 @@ def main():
     opts = ap.parse_args()
 
     best, budget = build_buckets()
-    block = emit_block(best, budget)
+    block, payload = emit_block(best, budget)
 
     if opts.apply:
         with open(opts.apply) as f:
@@ -1041,7 +1056,10 @@ def main():
         src = pat.sub(lambda m: stripped, src, count=1)
         with open(opts.apply, "w") as f:
             f.write(src)
-        print(f"Patched {opts.apply}")
+        import pathlib
+        sidecar = pathlib.Path(opts.apply).with_name("baked.tsv")
+        sidecar.write_text(payload + "\n", encoding="utf-8")
+        print(f"Patched {opts.apply} (+ {sidecar.name})")
     else:
         print(block)
 

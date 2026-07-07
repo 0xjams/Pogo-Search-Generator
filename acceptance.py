@@ -22,16 +22,21 @@ Command family: attkr-T (all vouched T attackers), raid-T / raid-T1-T2
 raidn-T[N] (exact Nth counter; [N] is an index there, CP floor elsewhere).
 """
 
+import base64
+import gzip
 import re
 import sys
 from pathlib import Path
 
 JAVA_FILE = Path(__file__).with_name("new.java")
 
+_KIND = {"e": "expansions", "c": "cpx", "s": "seTypes",
+         "t": "topByType", "b": "budgetByType"}
+
 
 def parse_maps(src):
-    """Extract every `<map>.put("key", "...")` from the BeanShell source
-    into {map_name: {key: value}}."""
+    """Extract the plain `.put()` maps (templates) AND inflate the baked
+    DATA_B64 blob (base64 -> gzip -> TSV) into the five data maps."""
     maps = {}
     put_re = re.compile(
         r'(\w+)\.put\(\s*"([^"]*)"\s*,\s*((?:"(?:[^"\\]|\\.)*"\s*(?:\+\s*)?)+)\)\s*;',
@@ -39,6 +44,17 @@ def parse_maps(src):
     for map_name, key, value_expr in put_re.findall(src):
         parts = re.findall(r'"((?:[^"\\]|\\.)*)"', value_expr)
         maps.setdefault(map_name, {})[key] = "".join(parts)
+
+    m = re.search(r'String DATA_B64 =\s*((?:"[A-Za-z0-9+/=]*"\s*\+?\s*)+);', src)
+    if m:
+        blob = "".join(re.findall(r'"([A-Za-z0-9+/=]*)"', m.group(1)))
+        payload = gzip.decompress(base64.b64decode(blob)).decode("utf-8")
+        for name in _KIND.values():
+            maps.setdefault(name, {})
+        for row in payload.split("\n"):
+            parts = row.split("\t")
+            if len(parts) == 3:
+                maps[_KIND[parts[0]]][parts[1]] = parts[2]
     return maps
 
 

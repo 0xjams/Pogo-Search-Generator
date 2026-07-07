@@ -77,583 +77,209 @@ pogoSearchReplacer = new Consumer() {
         Map topByType = new HashMap();
         Map budgetByType = new HashMap();
         /* ===== BEGIN GENERATED topByType (transcode.py) ===== */
-        /* PRECOMPILED by transcode.py -- the packing algorithm runs at
-         * build time. expansions = final search string per command key;
-         * cpx = repacked variant leaving room for a runtime &cpN- clause
-         * (present only where it differs). seTypes + topByType/budgetByType
-         * (species~fast~charged~formtags) feed the tiny raidn- runtime. */
-        seTypes.put("normal", "fighting");
-        seTypes.put("fire", "water ground rock");
-        seTypes.put("water", "electric grass");
-        seTypes.put("electric", "ground");
-        seTypes.put("grass", "fire ice poison flying bug");
-        seTypes.put("ice", "fire fighting rock steel");
-        seTypes.put("fighting", "flying psychic fairy");
-        seTypes.put("poison", "ground psychic");
-        seTypes.put("ground", "water grass ice");
-        seTypes.put("flying", "electric ice rock");
-        seTypes.put("psychic", "bug ghost dark");
-        seTypes.put("bug", "fire flying rock");
-        seTypes.put("rock", "water grass fighting ground steel");
-        seTypes.put("ghost", "ghost dark");
-        seTypes.put("dragon", "ice dragon fairy");
-        seTypes.put("dark", "fighting bug fairy");
-        seTypes.put("steel", "fire fighting ground");
-        seTypes.put("fairy", "poison steel");
-        seTypes.put("bug-dark", "fire flying bug rock fairy");
-        seTypes.put("bug-dragon", "ice flying rock dragon fairy");
-        seTypes.put("bug-electric", "fire rock");
-        seTypes.put("bug-fairy", "fire poison flying rock steel");
-        seTypes.put("bug-fighting", "flying fire psychic fairy");
-        seTypes.put("bug-fire", "rock water flying");
-        seTypes.put("bug-flying", "rock fire electric ice flying");
-        seTypes.put("bug-ghost", "fire flying rock ghost dark");
-        seTypes.put("bug-grass", "fire flying ice poison bug rock");
-        seTypes.put("bug-ground", "fire water ice flying");
-        seTypes.put("bug-ice", "fire rock flying steel");
-        seTypes.put("bug-normal", "fire flying rock");
-        seTypes.put("bug-poison", "fire flying psychic rock");
-        seTypes.put("bug-psychic", "fire flying bug rock ghost dark");
-        seTypes.put("bug-rock", "water rock steel");
-        seTypes.put("bug-steel", "fire");
-        seTypes.put("bug-water", "electric flying rock");
-        seTypes.put("dark-dragon", "fairy ice fighting bug dragon");
-        seTypes.put("dark-electric", "fighting ground bug fairy");
-        seTypes.put("dark-fairy", "poison steel fairy");
-        seTypes.put("dark-fighting", "fairy fighting flying");
-        seTypes.put("dark-fire", "water fighting ground rock");
-        seTypes.put("dark-flying", "electric ice rock fairy");
-        seTypes.put("dark-ghost", "fairy");
-        seTypes.put("dark-grass", "bug fire ice fighting poison flying fairy");
-        seTypes.put("dark-ground", "water grass ice fighting bug fairy");
-        seTypes.put("dark-ice", "fighting fire bug rock steel fairy");
-        seTypes.put("dark-normal", "fighting bug fairy");
-        seTypes.put("dark-poison", "ground");
-        seTypes.put("dark-psychic", "bug fairy");
-        seTypes.put("dark-rock", "fighting water grass ground bug steel fairy");
-        seTypes.put("dark-steel", "fighting fire ground");
-        seTypes.put("dark-water", "electric grass fighting bug fairy");
-        seTypes.put("dragon-electric", "ice ground dragon fairy");
-        seTypes.put("dragon-fairy", "ice poison steel fairy");
-        seTypes.put("dragon-fighting", "fairy ice flying psychic dragon");
-        seTypes.put("dragon-fire", "ground rock dragon");
-        seTypes.put("dragon-flying", "ice rock dragon fairy");
-        seTypes.put("dragon-ghost", "ice ghost dragon dark fairy");
-        seTypes.put("dragon-grass", "ice poison flying bug dragon fairy");
-        seTypes.put("dragon-ground", "ice dragon fairy");
-        seTypes.put("dragon-ice", "fighting rock dragon steel fairy");
-        seTypes.put("dragon-normal", "ice fighting dragon fairy");
-        seTypes.put("dragon-poison", "ice ground psychic dragon");
-        seTypes.put("dragon-psychic", "ice bug ghost dragon dark fairy");
-        seTypes.put("dragon-rock", "ice fighting ground dragon steel fairy");
-        seTypes.put("dragon-steel", "fighting ground");
-        seTypes.put("dragon-water", "dragon fairy");
-        seTypes.put("electric-fairy", "poison ground");
-        seTypes.put("electric-fighting", "ground psychic fairy");
-        seTypes.put("electric-fire", "ground water rock");
-        seTypes.put("electric-flying", "ice rock");
-        seTypes.put("electric-ghost", "ground ghost dark");
-        seTypes.put("electric-grass", "fire ice poison bug");
-        seTypes.put("electric-ground", "water grass ice ground");
-        seTypes.put("electric-ice", "fire fighting ground rock");
-        seTypes.put("electric-normal", "fighting ground");
-        seTypes.put("electric-poison", "ground psychic");
-        seTypes.put("electric-psychic", "ground bug ghost dark");
-        seTypes.put("electric-rock", "ground water grass fighting");
-        seTypes.put("electric-steel", "ground fire fighting");
-        seTypes.put("electric-water", "grass ground");
-        seTypes.put("fairy-fighting", "poison flying psychic steel fairy");
-        seTypes.put("fairy-fire", "water poison ground rock");
-        seTypes.put("fairy-flying", "electric ice poison rock steel");
-        seTypes.put("fairy-ghost", "ghost steel");
-        seTypes.put("fairy-grass", "poison fire ice flying steel");
-        seTypes.put("fairy-ground", "water grass ice steel");
-        seTypes.put("fairy-ice", "steel fire poison rock");
-        seTypes.put("fairy-normal", "poison steel");
-        seTypes.put("fairy-poison", "ground psychic steel");
-        seTypes.put("fairy-psychic", "poison ghost steel");
-        seTypes.put("fairy-rock", "steel water grass ground");
-        seTypes.put("fairy-steel", "fire ground");
-        seTypes.put("fairy-water", "electric grass poison");
-        seTypes.put("fighting-fire", "water ground flying psychic");
-        seTypes.put("fighting-flying", "electric ice flying psychic fairy");
-        seTypes.put("fighting-ghost", "flying psychic ghost fairy");
-        seTypes.put("fighting-grass", "flying fire ice poison psychic fairy");
-        seTypes.put("fighting-ground", "water grass ice flying psychic fairy");
-        seTypes.put("fighting-ice", "fire fighting flying psychic steel fairy");
-        seTypes.put("fighting-normal", "fighting flying psychic fairy");
-        seTypes.put("fighting-poison", "psychic ground flying");
-        seTypes.put("fighting-psychic", "flying ghost fairy");
-        seTypes.put("fighting-rock", "water grass fighting ground psychic steel fairy");
-        seTypes.put("fighting-steel", "fire fighting ground");
-        seTypes.put("fighting-water", "electric grass flying psychic fairy");
-        seTypes.put("fire-flying", "rock water electric");
-        seTypes.put("fire-ghost", "water ground rock ghost dark");
-        seTypes.put("fire-grass", "poison flying rock");
-        seTypes.put("fire-ground", "water ground");
-        seTypes.put("fire-ice", "rock water fighting ground");
-        seTypes.put("fire-normal", "water fighting ground rock");
-        seTypes.put("fire-poison", "ground water psychic rock");
-        seTypes.put("fire-psychic", "water ground rock ghost dark");
-        seTypes.put("fire-rock", "water ground fighting rock");
-        seTypes.put("fire-steel", "ground water fighting");
-        seTypes.put("fire-water", "electric ground rock");
-        seTypes.put("flying-ghost", "electric ice rock ghost dark");
-        seTypes.put("flying-grass", "ice fire poison flying rock");
-        seTypes.put("flying-ground", "ice water");
-        seTypes.put("flying-ice", "rock fire electric steel");
-        seTypes.put("flying-normal", "electric ice rock");
-        seTypes.put("flying-poison", "electric ice psychic rock");
-        seTypes.put("flying-psychic", "electric ice rock ghost dark");
-        seTypes.put("flying-rock", "water electric ice rock steel");
-        seTypes.put("flying-steel", "fire electric");
-        seTypes.put("flying-water", "electric rock");
-        seTypes.put("ghost-grass", "fire ice flying ghost dark");
-        seTypes.put("ghost-ground", "water grass ice ghost dark");
-        seTypes.put("ghost-ice", "fire rock ghost dark steel");
-        seTypes.put("ghost-normal", "dark");
-        seTypes.put("ghost-poison", "ground psychic ghost dark");
-        seTypes.put("ghost-psychic", "ghost dark");
-        seTypes.put("ghost-rock", "water grass ground ghost dark steel");
-        seTypes.put("ghost-steel", "fire ground ghost dark");
-        seTypes.put("ghost-water", "electric grass ghost dark");
-        seTypes.put("grass-ground", "ice fire flying bug");
-        seTypes.put("grass-ice", "fire fighting poison flying bug rock steel");
-        seTypes.put("grass-normal", "fire ice fighting poison flying bug");
-        seTypes.put("grass-poison", "fire ice flying psychic");
-        seTypes.put("grass-psychic", "bug fire ice poison flying ghost dark");
-        seTypes.put("grass-rock", "ice fighting bug steel");
-        seTypes.put("grass-steel", "fire fighting");
-        seTypes.put("grass-water", "poison flying bug");
-        seTypes.put("ground-ice", "fire water grass fighting steel");
-        seTypes.put("ground-normal", "water grass ice fighting");
-        seTypes.put("ground-poison", "water ice ground psychic");
-        seTypes.put("ground-psychic", "water grass ice bug ghost dark");
-        seTypes.put("ground-rock", "water grass ice fighting ground steel");
-        seTypes.put("ground-steel", "fire water fighting ground");
-        seTypes.put("ground-water", "grass");
-        seTypes.put("ice-normal", "fighting fire rock steel");
-        seTypes.put("ice-poison", "fire ground psychic rock steel");
-        seTypes.put("ice-psychic", "fire bug rock ghost dark steel");
-        seTypes.put("ice-rock", "fighting steel water grass ground rock");
-        seTypes.put("ice-steel", "fire fighting ground");
-        seTypes.put("ice-water", "electric grass fighting rock");
-        seTypes.put("normal-poison", "ground psychic");
-        seTypes.put("normal-psychic", "bug dark");
-        seTypes.put("normal-rock", "fighting water grass ground steel");
-        seTypes.put("normal-steel", "fighting fire ground");
-        seTypes.put("normal-water", "electric grass fighting");
-        seTypes.put("poison-psychic", "ground ghost dark");
-        seTypes.put("poison-rock", "ground water psychic steel");
-        seTypes.put("poison-steel", "ground fire");
-        seTypes.put("poison-water", "electric ground psychic");
-        seTypes.put("psychic-rock", "water grass ground bug ghost dark steel");
-        seTypes.put("psychic-steel", "fire ground ghost dark");
-        seTypes.put("psychic-water", "electric grass bug ghost dark");
-        seTypes.put("rock-steel", "fighting ground water");
-        seTypes.put("rock-water", "grass electric fighting ground");
-        seTypes.put("steel-water", "electric fighting ground");
-        topByType.put("normal", "regigigas~hidd~crus~bs,regigigas~hidd~giga i~b,mewtwo~psycho c~hyper b~sm,zacian~meta~giga i~b,lopunny~poun~hyper b~m,porygon-z~lock~hyper b~bs,meloetta~quic~hyper b~b");
-        topByType.put("fire", "charizard~fire s~blas~m,charizard~fire s~over~m,reshiram~fire f~fusion f~bs,reshiram~fire f~over~b,blaziken~fire s~blas~m,blaziken~fire s~over~m,blacephalon~inci~mind~b,heatran~fire s~magm~s,moltres~fire s~over~s,delphox~fire s~blas~s,chandelure~fire s~over~s");
-        topByType.put("water", "kyogre~waterf~orig~bsm,kyogre~waterf~hydro p~b,swampert~water g~hydro c~sm,swampert~mud s~hydro c~sm,blastoise~water g~hydro c~m,blastoise~water g~hydro p~m,gyarados~waterf~hydro p~m,feraligatr~water g~hydro c~s,feraligatr~water g~hydro p~s,kingler~bubble~crab~s,samurott~waterf~hydro c~s,samurott~waterf~hydro p~s,primarina~waterf~hydro p~b");
-        topByType.put("electric", "mewtwo~psycho c~thunderb~m,zeraora~volt~plas~b,raikou~thunder s~wild c~s,zekrom~charg~wild c~b,xurkitree~thunder s~disc~b,manectric~thunder f~wild c~m,thundurus~volt~thunderb~s,zapdos~thunder s~thunderb~s,zapdos~charg~thunderb~s,magnezone~volt~wild c~s");
-        topByType.put("grass", "sceptile~fury~fren~m,sceptile~fury~leaf b~m,venusaur~vine~fren~sm,venusaur~vine~sola~m,kartana~razo~leaf b~b,chesnaught~vine~fren~s,zarude~vine~power w~b,shaymin~magi~grass k~b,tangrowth~vine~power w~s,victreebel~magi~leaf b~m,rillaboom~razo~fren~b,rillaboom~razo~grass k~b");
-        topByType.put("ice", "kyurem~ice f~ice bu~b,kyurem~dragon t~free~b,mewtwo~psycho c~ice be~sm,mamoswine~powd~aval~s,gardevoir~charm~trip~m,zamazenta~ice f~behemoth ba~b,baxcalibur~ice f~aval~b,kyogre~waterf~aval~m");
-        topByType.put("fighting", "lucario~forc~aura~bm,lucario~coun~aura~b,blaziken~coun~aura~sm,keldeo~low k~secr~b,mewtwo~psycho c~focu~m,heracross~coun~clos~m,conkeldurr~forc~dynami~s,conkeldurr~coun~dynami~b,terrakion~double k~sacred s~b,terrakion~double k~clos~b");
-        topByType.put("poison", "eternatus~poison j~sludge b~b,gengar~lick~sludge b~m,gengar~shadow c~sludge b~m,beedrill~poison j~sludge b~m,nihilego~poison j~sludge b~b,victreebel~acid~sludge b~m,overqwil~poison j~sludge b~s,naganadel~poison j~sludge b~b,roserade~poison j~sludge b~b,revavroom~poison j~gunk~b,scolipede~poison j~sludge b~s");
-        topByType.put("ground", "groudon~mud s~prec~bsm,groudon~mud s~earthq~s,garchomp~mud s~earth p~sm,garchomp~mud s~earthq~s,landorus~mud s~sands~b,landorus~mud s~earth p~s,landorus~mud s~earthq~b,excadrill~mud-s~scor~s,rhyperior~mud-s~drill r~s,swampert~mud s~earthq~m");
-        topByType.put("flying", "rayquaza~air s~dragon a~bm,moltres~wing~fly~bs,salamence~fire f~fly~sm,enamorus~fairy w~fly~b,charizard~air s~blas~m,yveltal~gust~obli~b,yveltal~gust~hurr~b,articuno~psycho c~fly~b,staraptor~wing~fly~b");
-        topByType.put("psychic", "mewtwo~conf~psyst~m,mewtwo~psycho c~psyst~bs,mewtwo~psycho c~psychic~s,mewtwo~conf~psychic~m,alakazam~conf~psychic~m,alakazam~conf~futu~m,latios~zen h~psychic~sm,gardevoir~conf~psychic~m,gallade~conf~psychic~m,metagross~zen h~psychic~m");
-        topByType.put("bug", "heracross~fury~megah~m,pinsir~fury~x-sc~sm,pinsir~bug bi~x-sc~sm,scizor~fury~x-sc~sm,vikavolt~bug bi~x-sc~s,volcarona~bug bi~bug bu~b,beedrill~bug bi~x-sc~m,escavalier~bug bi~megah~s,metagross~fury~meteor m~s");
-        topByType.put("rock", "diancie~rock th~rock sl~m,rhyperior~smac~rock w~bs,rhyperior~smac~ston~s,tyranitar~smac~ston~sm,aerodactyl~rock th~rock sl~m,gigalith~lock~meteor b~s,gigalith~lock~rock sl~s,tyrantrum~rock th~meteor b~s,rampardos~smac~rock sl~s,rayquaza~dragon t~anci~m");
-        topByType.put("ghost", "necrozma~psycho c~moong~b,necrozma~shadow c~moong~b,mewtwo~psycho c~shadow ba~sm,gengar~lick~shadow ba~m,gengar~shadow c~shadow ba~m,darkrai~snar~shadow ba~s,chandelure~hex~shadow ba~s,banette~shadow c~shadow ba~m,lunala~shadow c~shadow ba~b,kyurem~shadow c~free~b");
-        topByType.put("dragon", "rayquaza~dragon t~brea~m,rayquaza~dragon t~outr~m,eternatus~dragon t~dynama~b,kyurem~dragon t~free~b,garchomp~dragon t~brea~sm,kyurem~dragon b~ice bu~b,salamence~dragon t~drac~m,haxorus~dragon t~brea~s,dialga~dragon b~drac~s,dragonite~dragon t~drac~m,dragonite~dragon b~drac~m,dragonite~dragon t~outr~m");
-        topByType.put("dark", "tyranitar~bite~brut~sm,hydreigon~bite~brut~s,hydreigon~bite~dark p~s,darkrai~snar~shadow ba~bs,absol~snar~brut~sm,absol~snar~dark p~m,gengar~suck~shadow ba~m,houndoom~snar~foul~m,salamence~bite~brut~m");
-        topByType.put("steel", "zacian~meta~behemoth bl~b,zamazenta~meta~behemoth ba~b,necrozma~meta~suns~b,metagross~bullet p~meteor m~bsm,lucario~forc~meteor m~m,dialga~meta~iron h~s,excadrill~meta~iron h~s,necrozma~meta~moong~b");
-        topByType.put("fairy", "gardevoir~charm~dazz~sm,zacian~meta~play~b,enamorus~fairy w~dazz~b,alakazam~psycho c~dazz~m,tapu lele~asto~natu~b,xerneas~geom~moonb~b,tapu koko~quic~natu~b,tapu bulu~bullet s~natu~b,latias~charm~outr~m");
-        budgetByType.put("normal", "");
-        budgetByType.put("fire", "volcarona~fire s~over~b,chandelure~fire s~over~b,cinderace~fire s~blas~b");
-        budgetByType.put("water", "inteleon~water g~hydro c~b,quaquaval~water g~hydro c~b,primarina~waterf~hydro c~b");
-        budgetByType.put("electric", "electivire~thunder s~wild c~b,magnezone~volt~wild c~b,luxray~spar~wild c~b");
-        budgetByType.put("grass", "rillaboom~razo~fren~b,meowscarada~leafa~fren~b,roserade~magi~grass k~b");
-        budgetByType.put("ice", "baxcalibur~ice f~aval~b,mamoswine~powd~aval~b,darmanitan~ice f~aval~b");
-        budgetByType.put("fighting", "lucario~forc~aura~b,blaziken~coun~aura~b,conkeldurr~forc~dynami~b");
-        budgetByType.put("poison", "roserade~poison j~sludge b~b,overqwil~poison j~sludge b~b,revavroom~poison j~gunk~b");
-        budgetByType.put("ground", "garchomp~mud s~earth p~b,excadrill~mud-s~scor~b,rhyperior~mud-s~earthq~b");
-        budgetByType.put("flying", "salamence~fire f~fly~b,toucannon~peck~beak~b,staraptor~gust~fly~b");
-        budgetByType.put("psychic", "metagross~zen h~psychic~b,espeon~conf~psychic~b,alakazam~conf~psychic~b");
-        budgetByType.put("bug", "volcarona~bug bi~bug bu~b,vikavolt~bug bi~x-sc~b,kleavor~fury~x-sc~b");
-        budgetByType.put("rock", "rhyperior~smac~rock w~b,glimmora~rock th~meteor b~b,rampardos~smac~rock sl~b");
-        budgetByType.put("ghost", "gholdengo~hex~shadow ba~b,dragapult~asto~shadow ba~b,chandelure~hex~shadow ba~b");
-        budgetByType.put("dragon", "baxcalibur~ice f~glai~b,haxorus~dragon t~brea~b,garchomp~dragon t~brea~b");
-        budgetByType.put("dark", "hydreigon~bite~brut~b,tyranitar~bite~brut~b,kingambit~snar~foul~b");
-        budgetByType.put("steel", "metagross~bullet p~meteor m~b,tinkaton~fairy w~gigat~b,lucario~forc~meteor m~b");
-        budgetByType.put("fairy", "gardevoir~charm~dazz~b,togekiss~charm~dazz~b,hatterene~charm~dazz~b");
-        expansions.put("raid-normal", "lucario,blaziken,conkeldurr,keldeo,mewtwo,terrakion&@forc,@coun,@low k,@psycho c,@double k&@aura,@dynami,@secr,@focu,@sacred s&!blaziken,@aura&!conkeldurr,@dynami&!mewtwo,megaevolve,mega");
-        expansions.put("raid-fire", "kyogre,inteleon,groudon,garchomp,diancie,rhyperior,quaquaval&@waterf,@water g,@mud s,@rock th,@smac&@orig,@hydro p,@hydro c,@prec,@earth p,@rock sl,@rock w&!inteleon,@hydro c&!diancie,megaevolve,mega");
-        expansions.put("raid-water", "mewtwo,electivire,sceptile,rillaboom,zeraora&@psycho c,@thunder s,@fury,@razo,@volt&@thunderb,@wild c,@fren,@plas&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega&!zeraora,@plas");
-        expansions.put("raid-electric", "groudon,garchomp,excadrill,rhyperior,landorus,swampert&@mud s,@mud-s&@prec,@earthq,@earth p,@scor,@drill r,@sands&!excadrill,@scor&!swampert,megaevolve,mega");
-        expansions.put("raid-grass", "charizard,volcarona,kyurem,baxcalibur,eternatus,roserade,rayquaza,salamence&@fire s,@air s,@ice f,@poison j,@fire f&@blas,@over,@ice bu,@aval,@sludge b,@dragon a,@fly&!charizard,megaevolve,mega");
-        expansions.put("raid-ice", "charizard,volcarona,lucario,diancie,rhyperior,zacian,chandelure&@fire s,@forc,@rock th,@smac,@meta&@blas,@over,@aura,@rock sl,@rock w,@behemoth bl&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-fighting", "rayquaza,salamence,mewtwo,metagross,gardevoir,moltres,toucannon,espeon,togekiss&@air s,@fire f,@conf,@psycho c,@zen h,@charm,@wing,@peck&@dragon a,@fly,@psyst,@psychic,@dazz,@beak&!togekiss,@charm");
-        expansions.put("raid-poison", "groudon,garchomp,mewtwo,metagross,excadrill,espeon,rhyperior,alakazam&@mud s,@conf,@psycho c,@zen h,@mud-s&@prec,@earthq,@earth p,@psyst,@psychic,@scor,@futu&!metagross,@psychic&!excadrill,@scor");
-        expansions.put("raid-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,quaquaval&@waterf,@water g,@fury,@razo,@ice f&@orig,@hydro p,@aval,@hydro c,@fren,@leaf b,@ice bu&!inteleon,@hydro c&!sceptile,megaevolve,mega");
-        expansions.put("raid-flying", "mewtwo,electivire,kyurem,baxcalibur,diancie&@psycho c,@thunder s,@ice f,@rock th&@thunderb,@wild c,@ice bu,@aval,@rock sl&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        expansions.put("raid-psychic", "heracross,volcarona,necrozma,gholdengo,tyranitar,hydreigon,kleavor,chandelure&@fury,@bug bi,@psycho c,@hex,@bite&@megah,@bug bu,@moong,@shadow ba,@brut,@dark p,@x-sc&!heracross,megaevolve,mega");
-        expansions.put("raid-bug", "charizard,volcarona,rayquaza,salamence,diancie,rhyperior,cinderace&@fire s,@air s,@fire f,@rock th,@smac&@blas,@over,@dragon a,@fly,@rock sl,@rock w&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-rock", "kyogre,inteleon,sceptile,rillaboom,lucario,groudon,garchomp,quaquaval&@waterf,@water g,@fury,@razo,@forc,@mud s&@orig,@hydro c,@fren,@aura,@prec,@earth p&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        expansions.put("raid-ghost", "necrozma,gholdengo,tyranitar,hydreigon,dragapult,mewtwo,chandelure&@psycho c,@shadow c,@hex,@bite,@asto&@moong,@shadow ba,@brut,@dark p&!gholdengo,@hex&!dragapult,@asto&!mewtwo,shadow,megaevolve,mega");
-        expansions.put("raid-dragon", "kyurem,baxcalibur,rayquaza,gardevoir,mamoswine,haxorus,zacian&@ice f,@dragon t,@charm,@powd,@meta&@ice bu,@free,@aval,@glai,@brea,@outr,@dazz,@play&!baxcalibur,@aval,@glai&!rayquaza,megaevolve,mega");
-        expansions.put("raid-dark", "lucario,heracross,volcarona,gardevoir,blaziken,pinsir,vikavolt,togekiss&@forc,@coun,@fury,@bug bi,@charm&@aura,@megah,@bug bu,@dazz,@x-sc&!heracross,megaevolve,mega&!pinsir,shadow,megaevolve,mega");
-        expansions.put("raid-steel", "charizard,volcarona,lucario,groudon,garchomp,chandelure,blaziken,excadrill&@fire s,@forc,@coun,@mud s,@mud-s&@blas,@over,@aura,@prec,@earthq,@earth p,@scor&!charizard,megaevolve,mega&!excadrill,@scor");
-        expansions.put("raid-fairy", "eternatus,roserade,zacian,metagross,gengar,overqwil,zamazenta,tinkaton&@poison j,@meta,@bullet p,@lick,@shadow c,@fairy w&@sludge b,@behemoth bl,@meteor m,@behemoth ba,@gigat&!gengar,megaevolve,mega");
-        expansions.put("raid-bug-dark", "charizard,volcarona,rayquaza,salamence,heracross,chandelure&@fire s,@air s,@bug bi,@fire f,@fury&@blas,@over,@bug bu,@dragon a,@fly,@megah&!charizard,megaevolve,mega&!heracross,megaevolve,mega");
-        expansions.put("raid-bug-dragon", "kyurem,baxcalibur,rayquaza,salamence,diancie,rhyperior&@ice f,@air s,@dragon t,@fire f,@rock th,@smac&@ice bu,@aval,@dragon a,@brea,@fly,@rock sl,@rock w&!baxcalibur,@aval&!diancie,megaevolve,mega");
-        expansions.put("raid-bug-electric", "charizard,volcarona,diancie,rhyperior,chandelure,glimmora,reshiram&@fire s,@rock th,@smac,@fire f&@blas,@over,@rock sl,@rock w,@meteor b,@fusion f&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-bug-fairy", "charizard,volcarona,eternatus,roserade,rayquaza,salamence,rhyperior,chandelure,overqwil&@fire s,@air s,@poison j,@fire f,@smac&@blas,@over,@sludge b,@dragon a,@fly,@rock w&!charizard,megaevolve,mega");
-        expansions.put("raid-bug-fighting", "rayquaza,salamence,charizard,volcarona,mewtwo,gardevoir,moltres,staraptor&@air s,@fire f,@fire s,@conf,@psycho c,@charm,@wing,@gust&@dragon a,@fly,@blas,@over,@psyst,@dazz&!charizard,megaevolve,mega");
-        expansions.put("raid-bug-fire", "diancie,rhyperior,kyogre,inteleon,rayquaza,salamence,glimmora,quaquaval&@rock th,@smac,@waterf,@water g,@air s,@fire f&@rock sl,@rock w,@orig,@hydro c,@dragon a,@fly,@meteor b&!diancie,megaevolve,mega");
-        expansions.put("raid-bug-flying", "diancie,rhyperior,charizard,volcarona,mewtwo&@rock th,@smac,@fire s,@psycho c&@rock sl,@rock w,@ston,@blas,@over,@thunderb&!diancie,megaevolve,mega&!charizard,megaevolve,mega&!mewtwo,megaevolve,mega");
-        expansions.put("raid-bug-ghost", "charizard,volcarona,rayquaza,salamence,diancie,rhyperior,cinderace&@fire s,@air s,@fire f,@rock th,@smac&@blas,@over,@dragon a,@fly,@rock sl,@rock w&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-bug-grass", "charizard,volcarona,rayquaza,salamence,kyurem,baxcalibur,eternatus,roserade&@fire s,@air s,@fire f,@ice f,@poison j&@blas,@over,@dragon a,@fly,@ice bu,@aval,@sludge b&!charizard,megaevolve,mega");
-        expansions.put("raid-bug-ground", "charizard,volcarona,kyogre,inteleon,kyurem,baxcalibur,rayquaza,chandelure,quaquaval&@fire s,@air s,@waterf,@water g,@ice f&@blas,@over,@orig,@aval,@hydro c,@ice bu,@dragon a&!charizard,megaevolve,mega");
-        expansions.put("raid-bug-ice", "charizard,volcarona,diancie,rhyperior,rayquaza,salamence,cinderace&@fire s,@air s,@rock th,@smac,@fire f&@blas,@over,@rock sl,@rock w,@dragon a,@fly&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-bug-normal", "charizard,volcarona,rayquaza,salamence,diancie,rhyperior,cinderace&@fire s,@air s,@fire f,@rock th,@smac&@blas,@over,@dragon a,@fly,@rock sl,@rock w&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-bug-poison", "charizard,volcarona,rayquaza,salamence,mewtwo,rhyperior,chandelure,reshiram&@fire s,@air s,@fire f,@conf,@psycho c,@smac&@blas,@over,@dragon a,@fly,@psyst,@rock w,@fusion f&!charizard,megaevolve,mega");
-        expansions.put("raid-bug-psychic", "charizard,volcarona,rayquaza,salamence,heracross,chandelure&@fire s,@air s,@bug bi,@fire f,@fury&@blas,@over,@bug bu,@dragon a,@fly,@megah&!charizard,megaevolve,mega&!heracross,megaevolve,mega");
-        expansions.put("raid-bug-rock", "kyogre,inteleon,diancie,rhyperior,zacian,metagross,quaquaval,primarina&@waterf,@water g,@rock th,@smac,@meta,@bullet p&@orig,@hydro c,@rock sl,@rock w,@behemoth bl,@meteor m&!diancie,megaevolve,mega");
-        expansions.put("raid-bug-steel", "charizard,volcarona,chandelure,reshiram,cinderace,blaziken,heatran&@fire s,@fire f&@blas,@over,@fusion f,@magm&!charizard,megaevolve,mega&!blaziken,megaevolve,mega&!heatran,shadow");
-        expansions.put("raid-bug-water", "mewtwo,electivire,rayquaza,salamence,diancie&@psycho c,@thunder s,@air s,@fire f,@rock th&@thunderb,@wild c,@dragon a,@fly,@rock sl&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        expansions.put("raid-dark-dragon", "gardevoir,kyurem,baxcalibur,lucario,heracross,volcarona,zacian,togekiss&@charm,@ice f,@forc,@coun,@fury,@bug bi,@meta&@dazz,@ice bu,@aval,@glai,@aura,@megah,@bug bu,@play&!heracross,megaevolve,mega");
-        expansions.put("raid-dark-electric", "lucario,groudon,garchomp,heracross,volcarona,gardevoir,blaziken&@forc,@coun,@mud s,@fury,@bug bi,@charm&@aura,@prec,@earthq,@earth p,@megah,@bug bu,@dazz&!heracross,@megah&!heracross,megaevolve,mega");
-        expansions.put("raid-dark-fairy", "eternatus,roserade,zacian,metagross,gardevoir,gengar&@poison j,@meta,@bullet p,@charm,@lick&@sludge b,@behemoth bl,@play,@meteor m,@dazz&!roserade,@sludge b&!gengar,@sludge b&!gengar,megaevolve,mega");
-        expansions.put("raid-dark-fighting", "gardevoir,lucario,rayquaza,salamence,zacian,togekiss,blaziken,moltres,enamorus&@charm,@forc,@coun,@air s,@fire f,@meta,@wing,@fairy w&@dazz,@aura,@dragon a,@fly,@play&!zacian,@meta&!togekiss,@charm");
-        expansions.put("raid-dark-fire", "kyogre,inteleon,lucario,groudon,garchomp,diancie,rhyperior,quaquaval&@waterf,@water g,@forc,@coun,@mud s,@rock th,@smac&@orig,@hydro c,@aura,@prec,@earth p,@rock sl,@rock w&!diancie,megaevolve,mega");
-        expansions.put("raid-dark-flying", "mewtwo,electivire,kyurem,baxcalibur,diancie&@psycho c,@thunder s,@ice f,@rock th&@thunderb,@wild c,@ice bu,@aval,@rock sl&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        expansions.put("raid-dark-ghost", "gardevoir,zacian,togekiss,enamorus,hatterene,alakazam,tapu lele,xerneas&@charm,@meta,@fairy w,@psycho c,@asto,@geom&@dazz,@play,@natu,@moonb&!enamorus,@fairy w&!alakazam,megaevolve,mega");
-        expansions.put("raid-dark-grass", "heracross,volcarona,charizard,kyurem,baxcalibur,lucario&@fury,@bug bi,@fire s,@ice f,@forc,@coun&@megah,@bug bu,@over,@blas,@ice bu,@aval,@aura&!heracross,megaevolve,mega&!charizard,megaevolve,mega");
-        expansions.put("raid-dark-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,lucario,volcarona&@waterf,@water g,@fury,@razo,@ice f,@forc,@bug bi&@orig,@aval,@hydro c,@fren,@ice bu,@aura,@bug bu&!sceptile,megaevolve,mega");
-        expansions.put("raid-dark-ice", "lucario,charizard,volcarona,heracross,rhyperior,gardevoir&@forc,@fire s,@bug bi,@fury,@smac,@charm&@aura,@blas,@over,@bug bu,@megah,@rock w,@dazz&!charizard,megaevolve,mega&!heracross,megaevolve,mega");
-        expansions.put("raid-dark-normal", "lucario,heracross,volcarona,gardevoir,blaziken,pinsir,vikavolt,togekiss&@forc,@coun,@fury,@bug bi,@charm&@aura,@megah,@bug bu,@dazz,@x-sc&!heracross,megaevolve,mega&!pinsir,shadow,megaevolve,mega");
-        expansions.put("raid-dark-poison", "groudon,garchomp,excadrill,rhyperior,landorus,swampert&@mud s,@mud-s&@prec,@earthq,@earth p,@scor,@drill r,@sands&!excadrill,@scor&!swampert,megaevolve,mega");
-        expansions.put("raid-dark-psychic", "heracross,volcarona,gardevoir,pinsir,vikavolt,zacian,togekiss,kleavor,hatterene&@fury,@bug bi,@charm,@meta&@megah,@bug bu,@dazz,@x-sc,@play&!heracross,megaevolve,mega&!pinsir,shadow,megaevolve,mega");
-        expansions.put("raid-dark-rock", "lucario,kyogre,inteleon,sceptile,rillaboom,groudon,garchomp&@forc,@coun,@waterf,@water g,@fury,@razo,@mud s&@aura,@orig,@hydro c,@fren,@leaf b,@prec,@earth p&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        expansions.put("raid-dark-steel", "lucario,charizard,volcarona,groudon,garchomp,blaziken,chandelure,excadrill&@forc,@coun,@fire s,@mud s,@mud-s&@aura,@blas,@over,@prec,@earthq,@earth p,@scor&!charizard,megaevolve,mega&!excadrill,@scor");
-        expansions.put("raid-dark-water", "mewtwo,electivire,sceptile,rillaboom,lucario,magnezone&@psycho c,@thunder s,@fury,@razo,@forc,@volt&@thunderb,@wild c,@fren,@aura&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        expansions.put("raid-dragon-electric", "kyurem,baxcalibur,groudon,garchomp,rayquaza,gardevoir&@ice f,@mud s,@dragon t,@charm&@ice bu,@aval,@glai,@prec,@earth p,@brea,@dazz&!baxcalibur,@aval,@glai&!groudon,@mud s&!rayquaza,megaevolve,mega");
-        expansions.put("raid-dragon-fairy", "kyurem,baxcalibur,eternatus,roserade,zacian,metagross,gardevoir&@ice f,@dragon t,@poison j,@meta,@bullet p,@charm&@ice bu,@free,@aval,@sludge b,@behemoth bl,@play,@meteor m,@dazz&!roserade,@sludge b");
-        expansions.put("raid-dragon-fighting", "gardevoir,kyurem,baxcalibur,rayquaza,salamence,mewtwo,metagross,moltres,espeon&@charm,@conf,@ice f,@air s,@fire f,@psycho c,@zen h,@wing&@dazz,@trip,@psychic,@ice bu,@aval,@glai,@dragon a,@fly,@psyst");
-        expansions.put("raid-dragon-fire", "groudon,garchomp,diancie,rhyperior,rayquaza&@mud s,@dragon t,@rock th,@smac,@mud-s&@prec,@earthq,@earth p,@brea,@rock sl,@rock w&!groudon,@mud s&!diancie,megaevolve,mega&!rayquaza,megaevolve,mega");
-        expansions.put("raid-dragon-flying", "kyurem,baxcalibur,diancie,rhyperior,rayquaza&@ice f,@dragon t,@rock th,@smac&@ice bu,@free,@aval,@glai,@rock sl,@rock w,@brea&!baxcalibur,@aval,@glai&!diancie,megaevolve,mega&!rayquaza,megaevolve,mega");
-        expansions.put("raid-dragon-ghost", "kyurem,baxcalibur,necrozma,gholdengo,rayquaza,hydreigon&@ice f,@dragon t,@psycho c,@hex,@bite&@ice bu,@free,@aval,@glai,@moong,@shadow ba,@brea,@brut&!baxcalibur,@aval,@glai&!rayquaza,megaevolve,mega");
-        expansions.put("raid-dragon-grass", "kyurem,baxcalibur,eternatus,roserade,rayquaza,salamence,heracross&@ice f,@dragon t,@poison j,@air s,@fire f,@fury&@ice bu,@free,@aval,@glai,@sludge b,@dragon a,@fly,@megah&!heracross,megaevolve,mega");
-        expansions.put("raid-dragon-ground", "kyurem,baxcalibur,rayquaza,gardevoir,mamoswine,haxorus,zacian&@ice f,@dragon t,@charm,@powd,@meta&@ice bu,@free,@aval,@glai,@brea,@outr,@dazz,@play&!baxcalibur,@aval,@glai&!rayquaza,megaevolve,mega");
-        expansions.put("raid-dragon-ice", "lucario,diancie,rhyperior,rayquaza,baxcalibur&@forc,@coun,@rock th,@smac,@dragon t,@ice f&@aura,@rock sl,@rock w,@brea,@outr,@glai&!diancie,megaevolve,mega&!rayquaza,megaevolve,mega&!baxcalibur,@glai");
-        expansions.put("raid-dragon-normal", "kyurem,baxcalibur,lucario,rayquaza,gardevoir,mamoswine,blaziken&@ice f,@dragon t,@forc,@coun,@charm,@powd&@ice bu,@free,@aval,@glai,@aura,@brea,@dazz&!baxcalibur,@aval,@glai&!rayquaza,megaevolve,mega");
-        expansions.put("raid-dragon-poison", "kyurem,baxcalibur,groudon,garchomp,mewtwo,metagross,espeon,darmanitan&@ice f,@dragon t,@mud s,@conf,@psycho c,@zen h&@ice bu,@free,@aval,@glai,@prec,@earth p,@psyst,@ice be,@psychic&!groudon,@mud s");
-        expansions.put("raid-dragon-psychic", "kyurem,baxcalibur,heracross,volcarona,necrozma,gholdengo,hydreigon&@ice f,@fury,@bug bi,@psycho c,@hex,@bite&@ice bu,@aval,@glai,@megah,@bug bu,@moong,@shadow ba,@brut&!heracross,megaevolve,mega");
-        expansions.put("raid-dragon-rock", "kyurem,baxcalibur,lucario,groudon,garchomp,rayquaza&@ice f,@dragon t,@forc,@mud s&@ice bu,@free,@aval,@glai,@aura,@prec,@earth p,@brea&!baxcalibur,@aval,@glai&!groudon,@mud s&!rayquaza,megaevolve,mega");
-        expansions.put("raid-dragon-steel", "lucario,groudon,garchomp,blaziken,excadrill,conkeldurr,rhyperior,keldeo,landorus&@forc,@coun,@mud s,@mud-s,@low k&@aura,@prec,@earthq,@earth p,@scor,@dynami,@drill r,@secr,@sands&!excadrill,@scor");
-        expansions.put("raid-dragon-water", "rayquaza,baxcalibur,gardevoir,haxorus,zacian,togekiss,eternatus,garchomp&@dragon t,@ice f,@charm,@meta&@brea,@outr,@glai,@dazz,@play,@dynama&!rayquaza,megaevolve,mega&!baxcalibur,@glai&!garchomp,@brea");
-        expansions.put("raid-electric-fairy", "eternatus,roserade,groudon,garchomp,gengar,overqwil,excadrill,revavroom&@poison j,@mud s,@lick,@shadow c,@mud-s&@sludge b,@prec,@earthq,@earth p,@scor,@gunk&!gengar,megaevolve,mega&!excadrill,@scor");
-        expansions.put("raid-electric-fighting", "groudon,garchomp,mewtwo,metagross,gardevoir,excadrill,espeon&@mud s,@conf,@psycho c,@zen h,@charm,@mud-s&@prec,@earthq,@earth p,@psyst,@psychic,@dazz,@scor&!metagross,@psychic&!excadrill,@scor");
-        expansions.put("raid-electric-fire", "groudon,garchomp,kyogre,inteleon,diancie,rhyperior&@mud s,@waterf,@water g,@rock th,@smac&@prec,@earthq,@earth p,@orig,@hydro p,@hydro c,@rock sl,@rock w&!inteleon,@hydro c&!diancie,megaevolve,mega");
-        expansions.put("raid-electric-flying", "kyurem,baxcalibur,diancie,rhyperior,mamoswine,glimmora,darmanitan&@ice f,@dragon t,@rock th,@smac,@powd&@ice bu,@free,@aval,@rock sl,@rock w,@ston,@meteor b&!diancie,megaevolve,mega&!darmanitan,@aval");
-        expansions.put("raid-electric-ghost", "groudon,garchomp,necrozma,gholdengo,tyranitar,hydreigon,rhyperior,mewtwo&@mud s,@psycho c,@shadow c,@hex,@bite,@mud-s&@prec,@earthq,@earth p,@moong,@shadow ba,@brut&!mewtwo,shadow,megaevolve,mega");
-        expansions.put("raid-electric-grass", "charizard,volcarona,kyurem,baxcalibur,eternatus,roserade,heracross&@fire s,@ice f,@poison j,@fury&@blas,@over,@ice bu,@aval,@sludge b,@megah&!charizard,megaevolve,mega&!heracross,megaevolve,mega");
-        expansions.put("raid-electric-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,groudon&@waterf,@water g,@fury,@razo,@ice f,@mud s&@orig,@hydro p,@aval,@hydro c,@fren,@ice bu,@prec&!inteleon,@hydro c&!sceptile,megaevolve,mega");
-        expansions.put("raid-electric-ice", "charizard,volcarona,lucario,groudon,garchomp,diancie,rhyperior&@fire s,@forc,@mud s,@rock th,@smac&@blas,@over,@aura,@prec,@earth p,@rock sl,@rock w&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-electric-normal", "lucario,groudon,garchomp,blaziken,excadrill,conkeldurr,rhyperior,keldeo,landorus&@forc,@coun,@mud s,@mud-s,@low k&@aura,@prec,@earthq,@earth p,@scor,@dynami,@drill r,@secr,@sands&!excadrill,@scor");
-        expansions.put("raid-electric-poison", "groudon,garchomp,mewtwo,metagross,excadrill,espeon,rhyperior,alakazam&@mud s,@conf,@psycho c,@zen h,@mud-s&@prec,@earthq,@earth p,@psyst,@psychic,@scor,@futu&!metagross,@psychic&!excadrill,@scor");
-        expansions.put("raid-electric-psychic", "groudon,garchomp,heracross,volcarona,necrozma,gholdengo,hydreigon&@mud s,@fury,@bug bi,@psycho c,@shadow c,@hex,@bite&@prec,@earth p,@megah,@bug bu,@moong,@shadow ba,@brut&!heracross,megaevolve,mega");
-        expansions.put("raid-electric-rock", "groudon,garchomp,kyogre,inteleon,sceptile,rillaboom,lucario,quaquaval&@mud s,@waterf,@water g,@fury,@razo,@forc&@prec,@earth p,@orig,@hydro c,@fren,@aura&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        expansions.put("raid-electric-steel", "groudon,garchomp,charizard,volcarona,lucario,excadrill,chandelure,blaziken&@mud s,@fire s,@forc,@coun,@mud-s&@prec,@earthq,@earth p,@blas,@over,@aura,@scor&!charizard,megaevolve,mega&!excadrill,@scor");
-        expansions.put("raid-electric-water", "sceptile,rillaboom,groudon,garchomp,meowscarada,rhyperior&@fury,@razo,@mud s,@leafa,@mud-s&@fren,@leaf b,@prec,@earthq,@earth p&!sceptile,@fren,@leaf b&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        expansions.put("raid-fairy-fighting", "eternatus,roserade,rayquaza,salamence,mewtwo,metagross,zacian,espeon&@poison j,@air s,@fire f,@conf,@psycho c,@zen h,@meta&@sludge b,@dragon a,@fly,@psyst,@psychic,@behemoth bl,@play&!zacian,@meta");
-        expansions.put("raid-fairy-fire", "kyogre,inteleon,eternatus,roserade,groudon,garchomp,diancie,rhyperior&@waterf,@water g,@poison j,@mud s,@rock th,@smac&@orig,@hydro c,@sludge b,@prec,@earth p,@rock sl,@rock w&!diancie,megaevolve,mega");
-        expansions.put("raid-fairy-flying", "mewtwo,electivire,kyurem,baxcalibur,eternatus,roserade,magnezone&@psycho c,@thunder s,@ice f,@poison j,@volt&@thunderb,@wild c,@ice bu,@aval,@sludge b&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        expansions.put("raid-fairy-ghost", "necrozma,gholdengo,zacian,metagross,dragapult,zamazenta,chandelure&@psycho c,@shadow c,@meta,@hex,@bullet p,@asto&@moong,@shadow ba,@behemoth bl,@meteor m,@behemoth ba&!gholdengo,@hex&!dragapult,@asto");
-        expansions.put("raid-fairy-grass", "eternatus,roserade,charizard,volcarona,kyurem,baxcalibur,rayquaza,salamence&@poison j,@fire s,@air s,@ice f,@fire f&@sludge b,@blas,@over,@ice bu,@aval,@dragon a,@fly&!charizard,megaevolve,mega");
-        expansions.put("raid-fairy-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,zacian,quaquaval&@waterf,@water g,@fury,@razo,@ice f,@meta&@orig,@aval,@hydro c,@fren,@leaf b,@ice bu,@behemoth bl&!sceptile,megaevolve,mega");
-        expansions.put("raid-fairy-ice", "zacian,metagross,charizard,volcarona,eternatus,roserade,rhyperior,chandelure&@meta,@bullet p,@fire s,@poison j,@smac&@behemoth bl,@meteor m,@blas,@over,@sludge b,@rock w&!charizard,megaevolve,mega");
-        expansions.put("raid-fairy-normal", "eternatus,roserade,zacian,metagross,gengar,overqwil,zamazenta,tinkaton&@poison j,@meta,@bullet p,@lick,@shadow c,@fairy w&@sludge b,@behemoth bl,@meteor m,@behemoth ba,@gigat&!gengar,megaevolve,mega");
-        expansions.put("raid-fairy-poison", "groudon,garchomp,mewtwo,metagross,zacian,espeon,alakazam&@mud s,@conf,@psycho c,@zen h,@bullet p,@meta&@prec,@earthq,@earth p,@psyst,@psychic,@meteor m,@behemoth bl,@futu&!metagross,@psychic,@meteor m");
-        expansions.put("raid-fairy-psychic", "eternatus,roserade,necrozma,gholdengo,zacian,metagross,gengar&@poison j,@psycho c,@meta,@hex,@bullet p,@lick&@sludge b,@moong,@shadow ba,@behemoth bl,@meteor m&!gengar,@lick&!gengar,megaevolve,mega");
-        expansions.put("raid-fairy-rock", "zacian,metagross,kyogre,inteleon,sceptile,rillaboom,groudon,quaquaval&@meta,@bullet p,@waterf,@water g,@fury,@razo,@mud s&@behemoth bl,@meteor m,@orig,@hydro c,@fren,@prec&!sceptile,megaevolve,mega");
-        expansions.put("raid-fairy-steel", "charizard,volcarona,groudon,garchomp,chandelure,excadrill,reshiram,landorus&@fire s,@mud s,@mud-s,@fire f&@blas,@over,@prec,@earthq,@earth p,@scor,@fusion f&!charizard,megaevolve,mega&!excadrill,@scor");
-        expansions.put("raid-fairy-water", "mewtwo,electivire,sceptile,rillaboom,eternatus&@psycho c,@thunder s,@fury,@razo,@poison j&@thunderb,@wild c,@fren,@sludge b&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        expansions.put("raid-fighting-fire", "kyogre,inteleon,groudon,garchomp,rayquaza,salamence,mewtwo,quaquaval,espeon&@waterf,@water g,@mud s,@air s,@fire f,@conf,@psycho c&@orig,@hydro c,@prec,@earthq,@earth p,@dragon a,@fly,@psyst,@psychic");
-        expansions.put("raid-fighting-flying", "mewtwo,electivire,kyurem,baxcalibur,rayquaza,salamence,espeon&@psycho c,@conf,@thunder s,@ice f,@air s,@fire f&@thunderb,@psyst,@psychic,@wild c,@ice bu,@aval,@dragon a,@fly&!electivire,@wild c");
-        expansions.put("raid-fighting-ghost", "rayquaza,salamence,mewtwo,metagross,necrozma,gholdengo,moltres,espeon,staraptor&@air s,@fire f,@conf,@psycho c,@zen h,@shadow c,@hex,@wing,@gust&@dragon a,@fly,@psyst,@psychic,@shadow ba,@moong");
-        expansions.put("raid-fighting-grass", "rayquaza,salamence,charizard,volcarona,kyurem,baxcalibur,eternatus,roserade&@air s,@fire f,@fire s,@ice f,@poison j&@dragon a,@fly,@blas,@over,@ice bu,@aval,@sludge b&!charizard,megaevolve,mega");
-        expansions.put("raid-fighting-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,rayquaza,salamence&@waterf,@water g,@fury,@razo,@ice f,@air s,@fire f&@orig,@aval,@hydro c,@fren,@ice bu,@dragon a,@fly&!sceptile,megaevolve,mega");
-        expansions.put("raid-fighting-ice", "charizard,volcarona,lucario,rayquaza,salamence,mewtwo,chandelure,cinderace&@fire s,@air s,@forc,@coun,@fire f,@conf,@psycho c&@blas,@over,@aura,@dragon a,@fly,@psyst&!charizard,megaevolve,mega");
-        expansions.put("raid-fighting-normal", "lucario,rayquaza,salamence,mewtwo,metagross,gardevoir,blaziken,moltres,espeon,staraptor&@forc,@coun,@air s,@fire f,@conf,@psycho c,@zen h,@charm,@wing,@gust&@aura,@dragon a,@fly,@psyst,@psychic,@dazz");
-        expansions.put("raid-fighting-poison", "mewtwo,metagross,groudon,garchomp,rayquaza,salamence,espeon,moltres&@conf,@psycho c,@zen h,@mud s,@air s,@fire f,@wing&@psyst,@psychic,@prec,@earthq,@earth p,@dragon a,@fly&!metagross,@psychic");
-        expansions.put("raid-fighting-psychic", "rayquaza,salamence,necrozma,gholdengo,gardevoir,moltres,toucannon&@air s,@fire f,@psycho c,@hex,@charm,@wing,@peck&@dragon a,@fly,@moong,@shadow ba,@dazz,@beak&!gholdengo,@shadow ba&!gardevoir,@dazz");
-        expansions.put("raid-fighting-rock", "kyogre,inteleon,sceptile,rillaboom,lucario,groudon,garchomp,quaquaval&@waterf,@water g,@fury,@razo,@forc,@mud s&@orig,@hydro c,@fren,@aura,@prec,@earth p&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        expansions.put("raid-fighting-steel", "charizard,volcarona,lucario,groudon,garchomp,chandelure,blaziken,excadrill&@fire s,@forc,@coun,@mud s,@mud-s&@blas,@over,@aura,@prec,@earthq,@earth p,@scor&!charizard,megaevolve,mega&!excadrill,@scor");
-        expansions.put("raid-fighting-water", "mewtwo,electivire,sceptile,rillaboom,rayquaza,zacian&@psycho c,@thunder s,@fury,@razo,@air s,@meta&@thunderb,@psyst,@wild c,@fren,@leaf b,@dragon a,@play&!electivire,@wild c&!sceptile,megaevolve,mega");
-        expansions.put("raid-fire-flying", "diancie,rhyperior,kyogre,inteleon,mewtwo,glimmora&@rock th,@smac,@waterf,@water g,@psycho c&@rock sl,@rock w,@ston,@orig,@hydro c,@thunderb,@meteor b&!diancie,megaevolve,mega&!mewtwo,megaevolve,mega");
-        expansions.put("raid-fire-ghost", "kyogre,inteleon,groudon,garchomp,diancie,rhyperior,necrozma,quaquaval&@waterf,@water g,@mud s,@rock th,@smac,@psycho c&@orig,@hydro c,@prec,@earth p,@rock sl,@rock w,@moong&!diancie,megaevolve,mega");
-        expansions.put("raid-fire-grass", "eternatus,roserade,rayquaza,salamence,diancie,rhyperior,gengar&@poison j,@air s,@fire f,@rock th,@smac,@lick&@sludge b,@dragon a,@fly,@rock sl,@rock w&!diancie,megaevolve,mega&!gengar,megaevolve,mega");
-        expansions.put("raid-fire-ground", "kyogre,inteleon,groudon,garchomp,quaquaval,excadrill,primarina,rhyperior&@waterf,@water g,@mud s,@mud-s&@orig,@hydro p,@hydro c,@prec,@earthq,@earth p,@scor&!inteleon,@hydro c&!excadrill,@scor");
-        expansions.put("raid-fire-ice", "diancie,rhyperior,kyogre,inteleon,lucario,groudon,garchomp,glimmora&@rock th,@smac,@waterf,@water g,@forc,@mud s&@rock sl,@rock w,@orig,@hydro c,@aura,@prec,@earth p,@meteor b&!diancie,megaevolve,mega");
-        expansions.put("raid-fire-normal", "kyogre,inteleon,lucario,groudon,garchomp,diancie,rhyperior,quaquaval&@waterf,@water g,@forc,@coun,@mud s,@rock th,@smac&@orig,@hydro c,@aura,@prec,@earth p,@rock sl,@rock w&!diancie,megaevolve,mega");
-        expansions.put("raid-fire-poison", "groudon,garchomp,kyogre,inteleon,mewtwo,metagross,rhyperior,quaquaval,espeon,alakazam&@mud s,@waterf,@water g,@conf,@psycho c,@zen h,@smac&@prec,@earth p,@orig,@hydro c,@psyst,@psychic,@rock w,@ston");
-        expansions.put("raid-fire-psychic", "kyogre,inteleon,groudon,garchomp,diancie,rhyperior,necrozma,quaquaval&@waterf,@water g,@mud s,@rock th,@smac,@psycho c&@orig,@hydro c,@prec,@earth p,@rock sl,@rock w,@moong&!diancie,megaevolve,mega");
-        expansions.put("raid-fire-rock", "kyogre,inteleon,groudon,garchomp,lucario,diancie,rhyperior,quaquaval&@waterf,@water g,@mud s,@forc,@rock th,@smac&@orig,@hydro c,@prec,@earthq,@earth p,@aura,@rock sl,@rock w&!diancie,megaevolve,mega");
-        expansions.put("raid-fire-steel", "groudon,garchomp,kyogre,inteleon,lucario,excadrill,quaquaval&@mud s,@waterf,@water g,@forc,@coun,@mud-s&@prec,@earthq,@earth p,@orig,@hydro p,@hydro c,@aura,@scor&!inteleon,@hydro c&!excadrill,@scor");
-        expansions.put("raid-fire-water", "mewtwo,electivire,groudon,garchomp,diancie&@psycho c,@thunder s,@mud s,@rock th&@thunderb,@wild c,@prec,@earthq,@earth p,@rock sl&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        expansions.put("raid-flying-ghost", "mewtwo,electivire,kyurem,baxcalibur,diancie&@psycho c,@thunder s,@ice f,@rock th&@thunderb,@wild c,@ice bu,@aval,@rock sl&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        expansions.put("raid-flying-grass", "kyurem,baxcalibur,charizard,volcarona,eternatus,roserade,rayquaza,salamence&@ice f,@fire s,@air s,@poison j,@fire f&@ice bu,@aval,@blas,@over,@sludge b,@dragon a,@fly&!charizard,megaevolve,mega");
-        expansions.put("raid-flying-ground", "kyurem,baxcalibur,kyogre,inteleon,mamoswine,quaquaval,darmanitan,primarina,zamazenta&@ice f,@dragon t,@waterf,@water g,@powd&@ice bu,@free,@aval,@orig,@hydro p,@hydro c,@behemoth ba&!inteleon,@hydro c");
-        expansions.put("raid-flying-ice", "diancie,rhyperior,charizard,volcarona,mewtwo&@rock th,@smac,@fire s,@psycho c&@rock sl,@rock w,@ston,@blas,@over,@thunderb&!diancie,megaevolve,mega&!charizard,megaevolve,mega&!mewtwo,megaevolve,mega");
-        expansions.put("raid-flying-normal", "mewtwo,electivire,kyurem,baxcalibur,diancie&@psycho c,@thunder s,@ice f,@rock th&@thunderb,@wild c,@ice bu,@aval,@rock sl&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        expansions.put("raid-flying-poison", "mewtwo,electivire,kyurem,baxcalibur,metagross,magnezone,espeon,darmanitan&@psycho c,@conf,@thunder s,@ice f,@zen h,@volt&@thunderb,@psyst,@ice be,@psychic,@wild c,@ice bu,@aval&!electivire,@wild c");
-        expansions.put("raid-flying-psychic", "mewtwo,electivire,kyurem,baxcalibur,diancie&@psycho c,@thunder s,@ice f,@rock th&@thunderb,@wild c,@ice bu,@aval,@rock sl&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        expansions.put("raid-flying-rock", "kyogre,inteleon,mewtwo,electivire,kyurem,baxcalibur,quaquaval&@waterf,@water g,@psycho c,@thunder s,@ice f&@orig,@aval,@hydro c,@thunderb,@wild c,@ice bu&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        expansions.put("raid-flying-steel", "charizard,volcarona,mewtwo,electivire,chandelure,magnezone&@fire s,@psycho c,@thunder s,@volt&@blas,@over,@thunderb,@wild c&!charizard,megaevolve,mega&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        expansions.put("raid-flying-water", "mewtwo,electivire,diancie,rhyperior,magnezone&@psycho c,@thunder s,@rock th,@smac,@volt&@thunderb,@wild c,@rock sl,@rock w,@ston&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        expansions.put("raid-ghost-grass", "charizard,volcarona,kyurem,baxcalibur,rayquaza,salamence,necrozma,chandelure,reshiram&@fire s,@air s,@ice f,@fire f,@psycho c&@blas,@over,@ice bu,@aval,@dragon a,@fly,@moong&!charizard,megaevolve,mega");
-        expansions.put("raid-ghost-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,necrozma,hydreigon&@waterf,@water g,@fury,@razo,@ice f,@psycho c,@bite&@orig,@aval,@hydro c,@fren,@ice bu,@moong,@brut&!sceptile,megaevolve,mega");
-        expansions.put("raid-ghost-ice", "charizard,volcarona,diancie,rhyperior,necrozma,gholdengo&@fire s,@rock th,@smac,@psycho c,@hex&@blas,@over,@rock sl,@rock w,@ston,@moong,@shadow ba&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-ghost-normal", "tyranitar,hydreigon,kingambit,darkrai,absol,gengar,houndoom&@bite,@snar,@suck&@brut,@dark p,@foul,@shadow ba&!absol,shadow,megaevolve,mega&!gengar,megaevolve,mega&!houndoom,megaevolve,mega");
-        expansions.put("raid-ghost-poison", "groudon,garchomp,mewtwo,metagross,necrozma,gholdengo,hydreigon,espeon,tyranitar,chandelure&@mud s,@conf,@psycho c,@zen h,@shadow c,@hex,@bite&@prec,@earth p,@psyst,@psychic,@shadow ba,@moong,@brut");
-        expansions.put("raid-ghost-psychic", "necrozma,gholdengo,tyranitar,hydreigon,dragapult,mewtwo,chandelure&@psycho c,@shadow c,@hex,@bite,@asto&@moong,@shadow ba,@brut,@dark p&!gholdengo,@hex&!dragapult,@asto&!mewtwo,shadow,megaevolve,mega");
-        expansions.put("raid-ghost-rock", "kyogre,inteleon,sceptile,rillaboom,groudon,garchomp,necrozma&@waterf,@water g,@fury,@razo,@mud s,@psycho c&@orig,@hydro c,@fren,@leaf b,@prec,@earth p,@moong&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        expansions.put("raid-ghost-steel", "charizard,volcarona,groudon,garchomp,necrozma,gholdengo,hydreigon,chandelure&@fire s,@mud s,@psycho c,@hex,@bite&@blas,@over,@prec,@earthq,@earth p,@moong,@shadow ba,@brut&!charizard,megaevolve,mega");
-        expansions.put("raid-ghost-water", "mewtwo,electivire,sceptile,rillaboom,necrozma,magnezone&@psycho c,@thunder s,@fury,@razo,@volt&@thunderb,@wild c,@fren,@moong&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        expansions.put("raid-grass-ground", "kyurem,baxcalibur,charizard,volcarona,rayquaza,salamence,chandelure&@ice f,@dragon t,@fire s,@air s,@bug bi,@fire f&@ice bu,@free,@aval,@blas,@over,@bug bu,@dragon a,@fly&!charizard,megaevolve,mega");
-        expansions.put("raid-grass-ice", "charizard,volcarona,lucario,eternatus,roserade,rayquaza,salamence&@fire s,@air s,@bug bi,@forc,@coun,@poison j,@fire f&@blas,@over,@bug bu,@aura,@sludge b,@dragon a,@fly&!charizard,megaevolve,mega");
-        expansions.put("raid-grass-normal", "charizard,volcarona,kyurem,baxcalibur,lucario,eternatus,roserade,rayquaza&@fire s,@air s,@ice f,@forc,@coun,@poison j&@blas,@over,@ice bu,@aval,@aura,@sludge b,@dragon a&!charizard,megaevolve,mega");
-        expansions.put("raid-grass-poison", "charizard,volcarona,kyurem,baxcalibur,rayquaza,salamence,mewtwo,cinderace&@fire s,@air s,@ice f,@fire f,@conf,@psycho c&@blas,@over,@ice bu,@aval,@dragon a,@fly,@psyst&!charizard,megaevolve,mega");
-        expansions.put("raid-grass-psychic", "heracross,volcarona,charizard,kyurem,baxcalibur,roserade&@fury,@bug bi,@fire s,@ice f,@poison j&@megah,@bug bu,@over,@blas,@ice bu,@aval,@sludge b&!heracross,megaevolve,mega&!charizard,megaevolve,mega");
-        expansions.put("raid-grass-rock", "kyurem,baxcalibur,lucario,heracross,volcarona,zacian,metagross&@ice f,@forc,@coun,@fury,@bug bi,@meta,@bullet p&@ice bu,@aval,@aura,@meteor m,@megah,@bug bu,@behemoth bl&!heracross,megaevolve,mega");
-        expansions.put("raid-grass-steel", "charizard,volcarona,lucario,chandelure,blaziken,reshiram,cinderace,conkeldurr,keldeo&@fire s,@forc,@coun,@fire f,@low k&@blas,@over,@aura,@fusion f,@dynami,@secr&!charizard,megaevolve,mega");
-        expansions.put("raid-grass-water", "eternatus,roserade,rayquaza,salamence,heracross,volcarona,gengar&@poison j,@air s,@fire f,@fury,@bug bi,@lick&@sludge b,@dragon a,@fly,@megah,@bug bu&!heracross,megaevolve,mega&!gengar,megaevolve,mega");
-        expansions.put("raid-ground-ice", "charizard,volcarona,kyogre,inteleon,sceptile,rillaboom,lucario&@fire s,@waterf,@water g,@fury,@razo,@forc&@blas,@over,@orig,@hydro c,@fren,@aura&!charizard,megaevolve,mega&!sceptile,megaevolve,mega");
-        expansions.put("raid-ground-normal", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,lucario&@waterf,@water g,@fury,@razo,@ice f,@forc&@orig,@hydro p,@aval,@hydro c,@fren,@ice bu,@aura&!inteleon,@hydro c&!sceptile,megaevolve,mega");
-        expansions.put("raid-ground-poison", "kyogre,inteleon,kyurem,baxcalibur,groudon,garchomp,mewtwo,metagross,espeon&@waterf,@water g,@ice f,@mud s,@conf,@psycho c,@zen h&@orig,@aval,@hydro c,@ice bu,@prec,@earth p,@psyst,@ice be,@psychic");
-        expansions.put("raid-ground-psychic", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,heracross&@waterf,@water g,@fury,@razo,@ice f&@orig,@aval,@hydro c,@fren,@ice bu,@megah&!sceptile,megaevolve,mega&!heracross,megaevolve,mega");
-        expansions.put("raid-ground-rock", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,lucario,groudon,quaquaval&@waterf,@water g,@fury,@razo,@ice f,@forc,@mud s&@orig,@aval,@hydro c,@fren,@ice bu,@aura,@prec&!sceptile,megaevolve,mega");
-        expansions.put("raid-ground-steel", "charizard,volcarona,kyogre,inteleon,lucario,groudon,garchomp,chandelure,quaquaval&@fire s,@waterf,@water g,@forc,@coun,@mud s&@blas,@over,@orig,@hydro c,@aura,@prec,@earth p&!charizard,megaevolve,mega");
-        expansions.put("raid-ground-water", "sceptile,rillaboom,meowscarada,venusaur,roserade&@fury,@razo,@leafa,@vine,@magi&@fren,@leaf b,@grass k,@sola&!sceptile,megaevolve,mega&!venusaur,@vine&!venusaur,shadow,megaevolve,mega&!roserade,@magi");
-        expansions.put("raid-ice-normal", "lucario,charizard,volcarona,diancie,rhyperior,zacian&@forc,@coun,@fire s,@rock th,@smac,@meta&@aura,@blas,@over,@rock sl,@rock w,@ston,@behemoth bl&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-ice-poison", "charizard,volcarona,groudon,garchomp,mewtwo,metagross,espeon,cinderace&@fire s,@mud s,@conf,@psycho c,@zen h&@blas,@over,@prec,@earth p,@psyst,@psychic&!charizard,megaevolve,mega&!volcarona,@over");
-        expansions.put("raid-ice-psychic", "charizard,volcarona,heracross,diancie,chandelure&@fire s,@bug bi,@fury,@rock th&@blas,@over,@bug bu,@megah,@rock sl&!charizard,megaevolve,mega&!heracross,megaevolve,mega&!diancie,megaevolve,mega");
-        expansions.put("raid-ice-rock", "lucario,zacian,metagross,kyogre,inteleon,sceptile,rillaboom&@forc,@coun,@meta,@bullet p,@waterf,@water g,@fury,@razo&@aura,@meteor m,@behemoth bl,@orig,@hydro c,@fren,@leaf b&!sceptile,megaevolve,mega");
-        expansions.put("raid-ice-steel", "charizard,volcarona,lucario,groudon,garchomp,chandelure,blaziken,excadrill&@fire s,@forc,@coun,@mud s,@mud-s&@blas,@over,@aura,@prec,@earthq,@earth p,@scor&!charizard,megaevolve,mega&!excadrill,@scor");
-        expansions.put("raid-ice-water", "mewtwo,electivire,sceptile,rillaboom,lucario,magnezone&@psycho c,@thunder s,@fury,@razo,@forc,@volt&@thunderb,@wild c,@fren,@aura&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        expansions.put("raid-normal-poison", "groudon,garchomp,mewtwo,metagross,excadrill,espeon,rhyperior,alakazam&@mud s,@conf,@psycho c,@zen h,@mud-s&@prec,@earthq,@earth p,@psyst,@psychic,@scor,@futu&!metagross,@psychic&!excadrill,@scor");
-        expansions.put("raid-normal-psychic", "heracross,volcarona,tyranitar,hydreigon,pinsir,vikavolt,kleavor,kingambit&@fury,@bug bi,@bite,@snar&@megah,@bug bu,@brut,@dark p,@x-sc,@foul&!heracross,megaevolve,mega&!pinsir,shadow,megaevolve,mega");
-        expansions.put("raid-normal-rock", "lucario,kyogre,inteleon,sceptile,rillaboom,groudon,garchomp&@forc,@coun,@waterf,@water g,@fury,@razo,@mud s&@aura,@orig,@hydro c,@fren,@leaf b,@prec,@earth p&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        expansions.put("raid-normal-steel", "lucario,charizard,volcarona,groudon,garchomp,blaziken,chandelure,excadrill&@forc,@coun,@fire s,@mud s,@mud-s&@aura,@blas,@over,@prec,@earthq,@earth p,@scor&!charizard,megaevolve,mega&!excadrill,@scor");
-        expansions.put("raid-normal-water", "mewtwo,electivire,sceptile,rillaboom,lucario,magnezone&@psycho c,@thunder s,@fury,@razo,@forc,@volt&@thunderb,@wild c,@fren,@aura&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        expansions.put("raid-poison-psychic", "groudon,garchomp,necrozma,gholdengo,tyranitar,hydreigon,rhyperior,mewtwo&@mud s,@psycho c,@shadow c,@hex,@bite,@mud-s&@prec,@earthq,@earth p,@moong,@shadow ba,@brut&!mewtwo,shadow,megaevolve,mega");
-        expansions.put("raid-poison-rock", "groudon,garchomp,kyogre,inteleon,mewtwo,metagross,zacian,quaquaval,espeon,alakazam&@mud s,@waterf,@water g,@conf,@psycho c,@zen h,@meta&@prec,@earth p,@orig,@hydro c,@psyst,@psychic,@behemoth bl,@futu");
-        expansions.put("raid-poison-steel", "groudon,garchomp,charizard,volcarona,excadrill,chandelure,rhyperior,cinderace,landorus&@mud s,@fire s,@mud-s&@prec,@earthq,@earth p,@blas,@over,@scor,@sands&!charizard,megaevolve,mega&!excadrill,@scor");
-        expansions.put("raid-poison-water", "mewtwo,electivire,groudon,garchomp,metagross,magnezone,espeon,alakazam,zekrom&@psycho c,@conf,@thunder s,@mud s,@zen h,@volt,@charg&@thunderb,@psyst,@psychic,@wild c,@prec,@earth p&!electivire,@wild c");
-        expansions.put("raid-psychic-rock", "kyogre,inteleon,sceptile,rillaboom,groudon,garchomp,volcarona&@waterf,@water g,@fury,@razo,@mud s,@bug bi&@orig,@hydro c,@fren,@leaf b,@prec,@earth p,@bug bu&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        expansions.put("raid-psychic-steel", "charizard,volcarona,groudon,garchomp,necrozma,gholdengo,hydreigon,chandelure&@fire s,@mud s,@psycho c,@hex,@bite&@blas,@over,@prec,@earthq,@earth p,@moong,@shadow ba,@brut&!charizard,megaevolve,mega");
-        expansions.put("raid-psychic-water", "mewtwo,electivire,sceptile,rillaboom,volcarona&@psycho c,@thunder s,@fury,@razo,@bug bi&@thunderb,@wild c,@fren,@leaf b,@bug bu&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        expansions.put("raid-rock-steel", "lucario,groudon,garchomp,kyogre,inteleon,blaziken,excadrill&@forc,@coun,@mud s,@waterf,@water g,@mud-s&@aura,@prec,@earthq,@earth p,@orig,@hydro p,@hydro c,@scor&!inteleon,@hydro c&!excadrill,@scor");
-        expansions.put("raid-rock-water", "sceptile,rillaboom,mewtwo,electivire,lucario&@fury,@razo,@psycho c,@thunder s,@forc,@coun&@fren,@leaf b,@thunderb,@wild c,@aura&!sceptile,megaevolve,mega&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        expansions.put("raid-steel-water", "mewtwo,electivire,lucario,groudon,garchomp,zeraora&@psycho c,@thunder s,@forc,@coun,@mud s,@volt&@thunderb,@wild c,@aura,@prec,@earth p,@plas&!mewtwo,megaevolve,mega&!electivire,@wild c&!zeraora,@plas");
-        expansions.put("atk-normal", "regigigas,mewtwo,zacian,lopunny,porygon-z,meloetta&@hidd,@psycho c,@meta,@poun,@lock,@quic&@crus,@giga i,@hyper b&!mewtwo,shadow,megaevolve,mega&!zacian,@meta&!lopunny,megaevolve,mega");
-        expansions.put("attkr-normal", "regigigas,mewtwo,zacian,lopunny,porygon-z,meloetta&@normal");
-        expansions.put("atk-fire", "charizard,volcarona,chandelure,reshiram,cinderace,blaziken,heatran&@fire s,@fire f&@blas,@over,@fusion f,@magm&!charizard,megaevolve,mega&!blaziken,megaevolve,mega&!heatran,shadow");
-        expansions.put("attkr-fire", "charizard,volcarona,chandelure,reshiram,cinderace,blaziken,blacephalon,heatran,moltres,delphox&@fire");
-        expansions.put("atk-water", "kyogre,inteleon,quaquaval,swampert,primarina,blastoise&@waterf,@water g,@mud s&@orig,@hydro p,@hydro c&!inteleon,@hydro c&!swampert,shadow,megaevolve,mega&!blastoise,megaevolve,mega");
-        expansions.put("attkr-water", "kyogre,inteleon,quaquaval,swampert,primarina,blastoise,gyarados,feraligatr,kingler,samurott&@water");
-        expansions.put("atk-electric", "mewtwo,electivire,zeraora,magnezone,luxray&@psycho c,@thunder s,@volt,@spar&@thunderb,@wild c,@plas&!mewtwo,megaevolve,mega&!electivire,@wild c&!zeraora,@volt&!zeraora,@plas&!magnezone,@volt");
-        expansions.put("attkr-electric", "mewtwo,electivire,zeraora,magnezone,raikou,luxray,zekrom,xurkitree,manectric,thundurus,zapdos&@electric");
-        expansions.put("atk-grass", "sceptile,rillaboom,meowscarada,venusaur,roserade&@fury,@razo,@leafa,@vine,@magi&@fren,@leaf b,@grass k,@sola&!sceptile,megaevolve,mega&!venusaur,@vine&!venusaur,shadow,megaevolve,mega&!roserade,@magi");
-        expansions.put("attkr-grass", "sceptile,rillaboom,meowscarada,venusaur,roserade,kartana,chesnaught,zarude,shaymin,tangrowth,victreebel&@grass");
-        expansions.put("atk-ice", "kyurem,baxcalibur,mamoswine,mewtwo,darmanitan,gardevoir&@ice f,@dragon t,@powd,@psycho c,@charm&@ice bu,@free,@aval,@ice be,@trip&!mewtwo,shadow,megaevolve,mega&!gardevoir,megaevolve,mega");
-        expansions.put("attkr-ice", "kyurem,baxcalibur,mamoswine,mewtwo,darmanitan,gardevoir,zamazenta,kyogre&@ice");
-        expansions.put("atk-fighting", "lucario,blaziken,conkeldurr,keldeo,mewtwo,terrakion&@forc,@coun,@low k,@psycho c,@double k&@aura,@dynami,@secr,@focu,@sacred s&!blaziken,@aura&!conkeldurr,@dynami&!mewtwo,megaevolve,mega");
-        expansions.put("attkr-fighting", "lucario,blaziken,conkeldurr,keldeo,mewtwo,heracross,terrakion&@fighting");
-        expansions.put("atk-poison", "eternatus,roserade,gengar,overqwil,revavroom,beedrill,nihilego,naganadel&@poison j,@lick,@shadow c&@sludge b,@gunk&!gengar,megaevolve,mega&!beedrill,megaevolve,mega&!nihilego,@sludge b");
-        expansions.put("attkr-poison", "eternatus,roserade,gengar,overqwil,revavroom,beedrill,nihilego,victreebel,naganadel,scolipede&@poison");
-        expansions.put("atk-ground", "groudon,garchomp,excadrill,rhyperior,landorus,swampert&@mud s,@mud-s&@prec,@earthq,@earth p,@scor,@drill r,@sands&!excadrill,@scor&!swampert,megaevolve,mega");
-        expansions.put("attkr-ground", "groudon,garchomp,excadrill,rhyperior,landorus,swampert&@ground");
-        expansions.put("atk-flying", "rayquaza,salamence,moltres,toucannon,staraptor,enamorus,charizard,yveltal,articuno&@air s,@fire f,@wing,@peck,@gust,@fairy w,@psycho c&@dragon a,@fly,@beak,@blas,@obli,@hurr&!charizard,megaevolve,mega");
-        expansions.put("attkr-flying", "rayquaza,salamence,moltres,toucannon,staraptor,enamorus,charizard,yveltal,articuno&@flying");
-        expansions.put("atk-psychic", "mewtwo,metagross,espeon,alakazam,latios,gardevoir,gallade&@conf,@psycho c,@zen h&@psyst,@psychic,@futu&!latios,shadow,megaevolve,mega&!gardevoir,megaevolve,mega&!gallade,megaevolve,mega");
-        expansions.put("attkr-psychic", "mewtwo,metagross,espeon,alakazam,latios,gardevoir,gallade&@psychic");
-        expansions.put("atk-bug", "heracross,volcarona,pinsir,vikavolt,kleavor,scizor&@fury,@bug bi&@megah,@bug bu,@x-sc&!heracross,megaevolve,mega&!pinsir,shadow,megaevolve,mega&!scizor,shadow,megaevolve,mega");
-        expansions.put("attkr-bug", "heracross,volcarona,pinsir,vikavolt,kleavor,scizor,beedrill,escavalier,metagross&@bug");
-        expansions.put("atk-rock", "diancie,rhyperior,glimmora,rampardos,tyranitar,aerodactyl&@rock th,@smac&@rock sl,@rock w,@ston,@meteor b&!diancie,megaevolve,mega&!tyranitar,shadow,megaevolve,mega&!aerodactyl,megaevolve,mega");
-        expansions.put("attkr-rock", "diancie,rhyperior,glimmora,rampardos,tyranitar,aerodactyl,gigalith,tyrantrum,rayquaza&@rock");
-        expansions.put("atk-ghost", "necrozma,gholdengo,dragapult,mewtwo,chandelure,darkrai&@psycho c,@shadow c,@hex,@asto,@snar&@moong,@shadow ba&!gholdengo,@hex&!dragapult,@asto&!mewtwo,shadow,megaevolve,mega&!darkrai,shadow");
-        expansions.put("attkr-ghost", "necrozma,gholdengo,dragapult,mewtwo,chandelure,gengar,darkrai,banette,lunala,kyurem&@ghost");
-        expansions.put("atk-dragon", "rayquaza,baxcalibur,haxorus,eternatus,garchomp,kyurem&@dragon t,@ice f,@dragon b&@brea,@outr,@glai,@dynama,@free,@ice bu&!rayquaza,megaevolve,mega&!baxcalibur,@ice f&!baxcalibur,@glai&!garchomp,@brea");
-        expansions.put("attkr-dragon", "rayquaza,baxcalibur,haxorus,eternatus,garchomp,kyurem,salamence,dialga,dragonite&@dragon");
-        expansions.put("atk-dark", "tyranitar,hydreigon,kingambit,darkrai,absol,gengar,houndoom&@bite,@snar,@suck&@brut,@dark p,@foul,@shadow ba&!absol,shadow,megaevolve,mega&!gengar,megaevolve,mega&!houndoom,megaevolve,mega");
-        expansions.put("attkr-dark", "tyranitar,hydreigon,kingambit,darkrai,absol,gengar,houndoom,salamence&@dark");
-        expansions.put("atk-steel", "zacian,metagross,zamazenta,tinkaton,necrozma,lucario&@meta,@bullet p,@fairy w,@forc&@behemoth bl,@meteor m,@behemoth ba,@gigat,@suns,@moong");
-        expansions.put("attkr-steel", "zacian,metagross,zamazenta,tinkaton,necrozma,lucario,dialga,excadrill&@steel");
-        expansions.put("atk-fairy", "gardevoir,zacian,togekiss,enamorus,hatterene,alakazam,tapu lele,xerneas&@charm,@meta,@fairy w,@psycho c,@asto,@geom&@dazz,@play,@natu,@moonb&!enamorus,@fairy w&!alakazam,megaevolve,mega");
-        expansions.put("attkr-fairy", "gardevoir,zacian,togekiss,enamorus,hatterene,alakazam,tapu lele,xerneas,tapu koko,tapu bulu,latias&@fairy");
-        cpx.put("raid-fire", "kyogre,inteleon,groudon,garchomp,diancie,rhyperior&@waterf,@water g,@mud s,@rock th,@smac&@orig,@hydro p,@hydro c,@prec,@earth p,@rock sl,@rock w&!inteleon,@hydro c&!diancie,megaevolve,mega");
-        cpx.put("raid-water", "mewtwo,electivire,sceptile,rillaboom,magnezone&@psycho c,@thunder s,@fury,@razo,@volt&@thunderb,@wild c,@fren,@leaf b&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        cpx.put("raid-grass", "charizard,volcarona,kyurem,baxcalibur,eternatus,roserade,rayquaza&@fire s,@air s,@bug bi,@ice f,@poison j&@blas,@over,@bug bu,@ice bu,@aval,@sludge b,@dragon a&!charizard,megaevolve,mega");
-        cpx.put("raid-ice", "charizard,volcarona,lucario,diancie,rhyperior,zacian&@fire s,@forc,@rock th,@smac,@meta&@blas,@over,@aura,@rock sl,@rock w,@behemoth bl&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-fighting", "rayquaza,salamence,mewtwo,metagross,gardevoir,moltres,toucannon,espeon,staraptor&@air s,@fire f,@conf,@psycho c,@zen h,@charm,@wing,@peck,@gust&@dragon a,@fly,@psyst,@psychic,@dazz,@beak");
-        cpx.put("raid-poison", "groudon,garchomp,mewtwo,metagross,excadrill,espeon,rhyperior,alakazam&@mud s,@conf,@psycho c,@zen h,@mud-s&@prec,@earthq,@earth p,@psyst,@psychic,@scor&!metagross,@psychic&!excadrill,@scor");
-        cpx.put("raid-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,quaquaval&@waterf,@water g,@fury,@razo,@ice f&@orig,@hydro p,@aval,@hydro c,@fren,@ice bu&!inteleon,@hydro c&!sceptile,megaevolve,mega");
-        cpx.put("raid-psychic", "heracross,volcarona,necrozma,gholdengo,tyranitar,kleavor,chandelure,darkrai&@fury,@bug bi,@psycho c,@hex,@bite,@snar&@megah,@bug bu,@moong,@shadow ba,@brut,@x-sc&!heracross,megaevolve,mega");
-        cpx.put("raid-bug", "charizard,volcarona,rayquaza,salamence,diancie,rhyperior&@fire s,@air s,@fire f,@rock th,@smac&@blas,@over,@dragon a,@fly,@rock sl,@rock w&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-rock", "kyogre,inteleon,sceptile,rillaboom,lucario,groudon,garchomp&@waterf,@water g,@fury,@razo,@forc,@coun,@mud s&@orig,@hydro c,@fren,@aura,@prec,@earth p&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        cpx.put("raid-ghost", "necrozma,gholdengo,tyranitar,hydreigon,dragapult,mewtwo,chandelure&@psycho c,@shadow c,@hex,@bite,@asto&@moong,@shadow ba,@brut&!gholdengo,@hex&!dragapult,@asto&!mewtwo,shadow,megaevolve,mega");
-        cpx.put("raid-dragon", "kyurem,baxcalibur,rayquaza,gardevoir,mamoswine,haxorus,togekiss&@ice f,@dragon t,@charm,@powd&@ice bu,@free,@aval,@glai,@brea,@outr,@dazz&!baxcalibur,@aval,@glai&!rayquaza,megaevolve,mega");
-        cpx.put("raid-dark", "lucario,heracross,volcarona,gardevoir,blaziken,pinsir,vikavolt&@forc,@coun,@fury,@bug bi,@charm&@aura,@megah,@bug bu,@dazz,@x-sc&!heracross,megaevolve,mega&!pinsir,shadow,megaevolve,mega");
-        cpx.put("raid-steel", "charizard,volcarona,lucario,groudon,garchomp,chandelure,blaziken,reshiram&@fire s,@forc,@coun,@mud s,@fire f&@blas,@over,@aura,@prec,@earthq,@earth p,@fusion f&!charizard,megaevolve,mega");
-        cpx.put("raid-fairy", "eternatus,roserade,zacian,metagross,gengar,overqwil,zamazenta,tinkaton&@poison j,@meta,@bullet p,@lick,@fairy w&@sludge b,@behemoth bl,@meteor m,@behemoth ba,@gigat&!gengar,megaevolve,mega");
-        cpx.put("raid-bug-dragon", "kyurem,baxcalibur,rayquaza,salamence,diancie,rhyperior&@ice f,@dragon t,@air s,@fire f,@rock th,@smac&@ice bu,@free,@aval,@glai,@dragon a,@fly,@rock sl,@rock w,@ston&!diancie,megaevolve,mega");
-        cpx.put("raid-bug-electric", "charizard,volcarona,diancie,rhyperior,chandelure,glimmora,cinderace&@fire s,@rock th,@smac&@blas,@over,@rock sl,@rock w,@ston,@meteor b&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-bug-fairy", "charizard,volcarona,eternatus,roserade,rayquaza,salamence,rhyperior,chandelure&@fire s,@air s,@poison j,@fire f,@smac&@blas,@over,@sludge b,@dragon a,@fly,@rock w&!charizard,megaevolve,mega");
-        cpx.put("raid-bug-fighting", "rayquaza,salamence,charizard,volcarona,mewtwo,gardevoir,staraptor&@air s,@fire f,@fire s,@conf,@psycho c,@charm,@gust,@wing&@dragon a,@fly,@blas,@over,@psyst,@dazz&!charizard,megaevolve,mega");
-        cpx.put("raid-bug-fire", "diancie,rhyperior,kyogre,inteleon,rayquaza,salamence,glimmora&@rock th,@smac,@waterf,@water g,@air s,@fire f&@rock sl,@rock w,@orig,@hydro c,@dragon a,@fly,@meteor b&!diancie,megaevolve,mega");
-        cpx.put("raid-bug-flying", "diancie,rhyperior,charizard,volcarona,mewtwo&@rock th,@smac,@fire s,@psycho c&@rock sl,@rock w,@blas,@over,@thunderb&!diancie,megaevolve,mega&!charizard,megaevolve,mega&!mewtwo,megaevolve,mega");
-        cpx.put("raid-bug-ghost", "charizard,volcarona,rayquaza,salamence,diancie,rhyperior&@fire s,@air s,@fire f,@rock th,@smac&@blas,@over,@dragon a,@fly,@rock sl,@rock w&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-bug-grass", "charizard,volcarona,rayquaza,salamence,kyurem,baxcalibur,eternatus&@fire s,@air s,@fire f,@ice f,@poison j&@blas,@over,@dragon a,@fly,@ice bu,@aval,@sludge b&!charizard,megaevolve,mega");
-        cpx.put("raid-bug-ground", "charizard,volcarona,kyogre,inteleon,kyurem,baxcalibur,rayquaza,chandelure&@fire s,@air s,@waterf,@water g,@ice f&@blas,@over,@orig,@aval,@hydro c,@ice bu,@dragon a&!charizard,megaevolve,mega");
-        cpx.put("raid-bug-ice", "charizard,volcarona,diancie,rhyperior,rayquaza,salamence&@fire s,@air s,@rock th,@smac,@fire f&@blas,@over,@rock sl,@rock w,@dragon a,@fly&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-bug-normal", "charizard,volcarona,rayquaza,salamence,diancie,rhyperior&@fire s,@air s,@fire f,@rock th,@smac&@blas,@over,@dragon a,@fly,@rock sl,@rock w&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-bug-poison", "charizard,volcarona,rayquaza,salamence,mewtwo,rhyperior,reshiram&@fire s,@air s,@fire f,@conf,@psycho c,@smac&@blas,@over,@dragon a,@fly,@psyst,@rock w,@fusion f&!charizard,megaevolve,mega");
-        cpx.put("raid-bug-rock", "kyogre,inteleon,diancie,rhyperior,zacian,metagross,quaquaval&@waterf,@water g,@rock th,@smac,@meta,@bullet p&@orig,@hydro c,@rock sl,@rock w,@behemoth bl,@meteor m&!diancie,megaevolve,mega");
-        cpx.put("raid-bug-water", "mewtwo,electivire,rayquaza,salamence,rhyperior,magnezone&@psycho c,@thunder s,@air s,@fire f,@smac,@volt&@thunderb,@wild c,@dragon a,@fly,@rock w&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        cpx.put("raid-dark-dragon", "gardevoir,kyurem,baxcalibur,lucario,heracross,volcarona,zacian,togekiss&@charm,@ice f,@forc,@fury,@bug bi,@meta&@dazz,@ice bu,@aval,@glai,@aura,@megah,@bug bu,@play&!heracross,megaevolve,mega");
-        cpx.put("raid-dark-electric", "lucario,groudon,garchomp,heracross,volcarona,gardevoir,blaziken,vikavolt&@forc,@coun,@mud s,@fury,@bug bi,@charm&@aura,@prec,@earth p,@megah,@bug bu,@dazz,@x-sc&!heracross,megaevolve,mega");
-        cpx.put("raid-dark-fairy", "eternatus,roserade,zacian,metagross,gardevoir,gengar&@poison j,@meta,@bullet p,@charm,@lick&@sludge b,@behemoth bl,@meteor m,@dazz&!roserade,@sludge b&!gengar,@sludge b&!gengar,megaevolve,mega");
-        cpx.put("raid-dark-fighting", "gardevoir,lucario,rayquaza,salamence,zacian,togekiss,blaziken,moltres,hatterene&@charm,@forc,@coun,@air s,@fire f,@meta,@wing&@dazz,@aura,@dragon a,@fly,@play&!zacian,@meta&!togekiss,@charm");
-        cpx.put("raid-dark-fire", "kyogre,inteleon,lucario,groudon,garchomp,diancie,rhyperior,quaquaval&@waterf,@water g,@forc,@mud s,@rock th,@smac&@orig,@hydro c,@aura,@prec,@earth p,@rock sl,@rock w&!diancie,megaevolve,mega");
-        cpx.put("raid-dark-grass", "heracross,volcarona,charizard,kyurem,baxcalibur,lucario&@fury,@bug bi,@fire s,@ice f,@forc&@megah,@bug bu,@over,@blas,@ice bu,@aval,@aura&!heracross,megaevolve,mega&!charizard,megaevolve,mega");
-        cpx.put("raid-dark-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,lucario,gardevoir&@waterf,@water g,@fury,@razo,@ice f,@forc,@charm&@orig,@aval,@hydro c,@fren,@ice bu,@aura,@dazz&!sceptile,megaevolve,mega");
-        cpx.put("raid-dark-ice", "lucario,charizard,volcarona,heracross,rhyperior,blaziken&@forc,@coun,@fire s,@bug bi,@fury,@smac&@aura,@blas,@over,@bug bu,@megah,@rock w&!charizard,megaevolve,mega&!heracross,megaevolve,mega");
-        cpx.put("raid-dark-normal", "lucario,heracross,volcarona,gardevoir,blaziken,pinsir,vikavolt&@forc,@coun,@fury,@bug bi,@charm&@aura,@megah,@bug bu,@dazz,@x-sc&!heracross,megaevolve,mega&!pinsir,shadow,megaevolve,mega");
-        cpx.put("raid-dark-psychic", "heracross,volcarona,gardevoir,pinsir,vikavolt,zacian,togekiss,kleavor&@fury,@bug bi,@charm,@meta&@megah,@bug bu,@dazz,@x-sc,@play&!heracross,megaevolve,mega&!pinsir,shadow,megaevolve,mega");
-        cpx.put("raid-dark-rock", "lucario,kyogre,inteleon,sceptile,rillaboom,groudon,garchomp&@forc,@coun,@waterf,@water g,@fury,@razo,@mud s&@aura,@orig,@hydro c,@fren,@prec,@earth p&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        cpx.put("raid-dark-steel", "lucario,charizard,volcarona,groudon,garchomp,blaziken,chandelure,conkeldurr,cinderace&@forc,@coun,@fire s,@mud s&@aura,@blas,@over,@prec,@earthq,@earth p,@dynami&!charizard,megaevolve,mega");
-        cpx.put("raid-dark-water", "mewtwo,electivire,sceptile,rillaboom,lucario&@psycho c,@thunder s,@fury,@razo,@forc&@thunderb,@wild c,@fren,@leaf b,@aura&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        cpx.put("raid-dragon-electric", "kyurem,baxcalibur,groudon,garchomp,rayquaza&@ice f,@dragon t,@mud s&@ice bu,@free,@aval,@glai,@prec,@earthq,@earth p,@brea&!baxcalibur,@aval,@glai&!groudon,@mud s&!rayquaza,megaevolve,mega");
-        cpx.put("raid-dragon-fairy", "kyurem,baxcalibur,eternatus,roserade,zacian,metagross,gardevoir&@ice f,@dragon t,@poison j,@meta,@bullet p,@charm&@ice bu,@free,@aval,@sludge b,@behemoth bl,@meteor m,@dazz&!roserade,@sludge b");
-        cpx.put("raid-dragon-fighting", "gardevoir,kyurem,baxcalibur,rayquaza,salamence,mewtwo,metagross,espeon&@charm,@conf,@ice f,@air s,@fire f,@psycho c,@zen h&@dazz,@psychic,@ice bu,@aval,@glai,@dragon a,@fly,@psyst,@ice be");
-        cpx.put("raid-dragon-fire", "groudon,garchomp,diancie,rhyperior,rayquaza&@mud s,@dragon t,@rock th,@smac&@prec,@earthq,@earth p,@brea,@rock sl,@rock w&!groudon,@mud s&!diancie,megaevolve,mega&!rayquaza,megaevolve,mega");
-        cpx.put("raid-dragon-flying", "kyurem,baxcalibur,diancie,rhyperior,rayquaza&@ice f,@dragon t,@rock th,@smac&@ice bu,@free,@aval,@rock sl,@rock w,@brea&!baxcalibur,@aval&!diancie,megaevolve,mega&!rayquaza,megaevolve,mega");
-        cpx.put("raid-dragon-ghost", "kyurem,baxcalibur,necrozma,gholdengo,rayquaza&@ice f,@dragon t,@shadow c,@psycho c,@hex&@ice bu,@free,@aval,@glai,@moong,@shadow ba,@brea&!baxcalibur,@aval,@glai&!rayquaza,megaevolve,mega");
-        cpx.put("raid-dragon-grass", "kyurem,baxcalibur,eternatus,roserade,rayquaza,salamence,heracross,overqwil&@ice f,@poison j,@air s,@fire f,@fury&@ice bu,@aval,@glai,@sludge b,@dragon a,@fly,@megah&!heracross,megaevolve,mega");
-        cpx.put("raid-dragon-ground", "kyurem,baxcalibur,rayquaza,gardevoir,mamoswine,haxorus,togekiss&@ice f,@dragon t,@charm,@powd&@ice bu,@free,@aval,@glai,@brea,@outr,@dazz&!baxcalibur,@aval,@glai&!rayquaza,megaevolve,mega");
-        cpx.put("raid-dragon-ice", "lucario,diancie,rhyperior,rayquaza,baxcalibur&@forc,@rock th,@smac,@dragon t,@ice f&@aura,@rock sl,@rock w,@brea,@glai&!diancie,megaevolve,mega&!rayquaza,megaevolve,mega&!baxcalibur,@glai");
-        cpx.put("raid-dragon-normal", "kyurem,baxcalibur,lucario,rayquaza,gardevoir,mamoswine&@ice f,@dragon t,@forc,@coun,@charm,@powd&@ice bu,@free,@aval,@glai,@aura,@brea,@dazz&!baxcalibur,@aval,@glai&!rayquaza,megaevolve,mega");
-        cpx.put("raid-dragon-poison", "kyurem,baxcalibur,groudon,garchomp,mewtwo,metagross,espeon&@ice f,@dragon t,@mud s,@conf,@psycho c,@zen h&@ice bu,@free,@aval,@glai,@prec,@earth p,@psyst,@ice be,@psychic&!groudon,@mud s");
-        cpx.put("raid-dragon-psychic", "kyurem,baxcalibur,heracross,volcarona,necrozma,gholdengo&@ice f,@dragon t,@fury,@bug bi,@psycho c,@hex&@ice bu,@free,@aval,@glai,@megah,@bug bu,@moong,@shadow ba&!heracross,megaevolve,mega");
-        cpx.put("raid-dragon-rock", "kyurem,baxcalibur,lucario,groudon,garchomp,rayquaza&@ice f,@dragon t,@forc,@mud s&@ice bu,@free,@aval,@aura,@prec,@earth p,@brea&!baxcalibur,@aval&!groudon,@mud s&!rayquaza,megaevolve,mega");
-        cpx.put("raid-dragon-steel", "lucario,groudon,garchomp,blaziken,excadrill,conkeldurr,rhyperior,keldeo,landorus&@forc,@coun,@mud s,@mud-s,@low k&@aura,@prec,@earthq,@earth p,@scor,@dynami,@secr,@sands&!excadrill,@scor");
-        cpx.put("raid-dragon-water", "rayquaza,baxcalibur,gardevoir,haxorus,zacian,togekiss,eternatus,hatterene&@dragon t,@ice f,@charm,@meta&@brea,@outr,@glai,@dazz,@play,@dynama&!rayquaza,megaevolve,mega&!baxcalibur,@glai");
-        cpx.put("raid-electric-fairy", "eternatus,roserade,groudon,garchomp,gengar,overqwil,excadrill,rhyperior&@poison j,@mud s,@lick,@shadow c,@mud-s&@sludge b,@prec,@earthq,@earth p,@scor&!gengar,megaevolve,mega&!excadrill,@scor");
-        cpx.put("raid-electric-fighting", "groudon,garchomp,mewtwo,metagross,gardevoir,espeon,zacian,togekiss,alakazam&@mud s,@conf,@psycho c,@zen h,@charm,@meta&@prec,@earthq,@earth p,@psyst,@psychic,@dazz,@play&!metagross,@psychic");
-        cpx.put("raid-electric-fire", "groudon,garchomp,kyogre,inteleon,diancie,rhyperior,quaquaval&@mud s,@waterf,@water g,@rock th,@smac,@mud-s&@prec,@earthq,@earth p,@orig,@hydro c,@rock sl,@rock w,@ston&!diancie,megaevolve,mega");
-        cpx.put("raid-electric-flying", "kyurem,baxcalibur,diancie,rhyperior,mamoswine,glimmora,rampardos&@ice f,@dragon t,@rock th,@smac,@powd&@ice bu,@free,@aval,@rock sl,@rock w,@ston,@meteor b&!diancie,megaevolve,mega");
-        cpx.put("raid-electric-ghost", "groudon,garchomp,necrozma,gholdengo,tyranitar,hydreigon,rhyperior,chandelure,darkrai&@mud s,@psycho c,@shadow c,@hex,@bite,@mud-s,@snar&@prec,@earthq,@earth p,@moong,@shadow ba,@brut,@dark p");
-        cpx.put("raid-electric-grass", "charizard,volcarona,kyurem,baxcalibur,eternatus,roserade,chandelure&@fire s,@bug bi,@ice f,@dragon t,@poison j&@blas,@over,@bug bu,@ice bu,@free,@aval,@sludge b&!charizard,megaevolve,mega");
-        cpx.put("raid-electric-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,groudon,quaquaval&@waterf,@water g,@fury,@razo,@ice f,@mud s&@orig,@aval,@hydro c,@fren,@leaf b,@ice bu,@prec&!sceptile,megaevolve,mega");
-        cpx.put("raid-electric-ice", "charizard,volcarona,lucario,groudon,garchomp,diancie,chandelure&@fire s,@forc,@mud s,@rock th&@blas,@over,@aura,@prec,@earth p,@rock sl&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-electric-normal", "lucario,groudon,garchomp,blaziken,excadrill,conkeldurr,rhyperior,keldeo,landorus&@forc,@coun,@mud s,@mud-s,@low k&@aura,@prec,@earthq,@earth p,@scor,@dynami,@secr,@sands&!excadrill,@scor");
-        cpx.put("raid-electric-poison", "groudon,garchomp,mewtwo,metagross,excadrill,espeon,rhyperior,alakazam&@mud s,@conf,@psycho c,@zen h,@mud-s&@prec,@earthq,@earth p,@psyst,@psychic,@scor&!metagross,@psychic&!excadrill,@scor");
-        cpx.put("raid-electric-psychic", "groudon,garchomp,heracross,volcarona,necrozma,gholdengo,hydreigon&@mud s,@fury,@bug bi,@psycho c,@hex,@bite&@prec,@earth p,@megah,@bug bu,@moong,@shadow ba,@brut&!heracross,megaevolve,mega");
-        cpx.put("raid-electric-rock", "groudon,garchomp,kyogre,inteleon,sceptile,rillaboom,lucario&@mud s,@waterf,@water g,@fury,@razo,@forc,@coun&@prec,@earth p,@orig,@hydro c,@fren,@aura&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        cpx.put("raid-electric-steel", "groudon,garchomp,charizard,volcarona,lucario,excadrill,chandelure&@mud s,@fire s,@forc,@coun,@mud-s&@prec,@earthq,@earth p,@blas,@over,@aura,@scor&!charizard,megaevolve,mega&!excadrill,@scor");
-        cpx.put("raid-electric-water", "sceptile,rillaboom,groudon,garchomp,meowscarada,kartana&@fury,@razo,@mud s,@leafa&@fren,@leaf b,@prec,@earthq,@earth p&!sceptile,@fren,@leaf b&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        cpx.put("raid-fairy-fighting", "eternatus,roserade,rayquaza,salamence,mewtwo,metagross,overqwil,espeon,alakazam&@poison j,@air s,@fire f,@conf,@psycho c,@zen h,@bullet p&@sludge b,@dragon a,@fly,@psyst,@psychic,@meteor m");
-        cpx.put("raid-fairy-fire", "kyogre,inteleon,eternatus,roserade,groudon,garchomp,diancie,quaquaval&@waterf,@water g,@poison j,@mud s,@rock th&@orig,@hydro c,@sludge b,@prec,@earth p,@rock sl&!diancie,megaevolve,mega");
-        cpx.put("raid-fairy-flying", "mewtwo,electivire,kyurem,baxcalibur,eternatus,roserade,overqwil&@psycho c,@thunder s,@ice f,@poison j&@thunderb,@wild c,@ice bu,@aval,@sludge b&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        cpx.put("raid-fairy-ghost", "necrozma,gholdengo,zacian,metagross,dragapult,zamazenta&@psycho c,@shadow c,@meta,@hex,@bullet p,@asto&@moong,@shadow ba,@behemoth bl,@meteor m,@behemoth ba&!gholdengo,@hex&!dragapult,@asto");
-        cpx.put("raid-fairy-grass", "eternatus,roserade,charizard,volcarona,kyurem,baxcalibur,rayquaza,overqwil,chandelure&@poison j,@fire s,@air s,@ice f&@sludge b,@blas,@over,@ice bu,@aval,@dragon a&!charizard,megaevolve,mega");
-        cpx.put("raid-fairy-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,zacian,quaquaval&@waterf,@water g,@fury,@razo,@ice f,@meta&@orig,@aval,@hydro c,@fren,@ice bu,@behemoth bl&!sceptile,megaevolve,mega");
-        cpx.put("raid-fairy-ice", "zacian,metagross,charizard,volcarona,eternatus,roserade,rhyperior&@meta,@bullet p,@fire s,@poison j,@smac&@behemoth bl,@meteor m,@blas,@over,@sludge b,@rock w,@ston&!charizard,megaevolve,mega");
-        cpx.put("raid-fairy-normal", "eternatus,roserade,zacian,metagross,gengar,overqwil,zamazenta,tinkaton&@poison j,@meta,@bullet p,@lick,@fairy w&@sludge b,@behemoth bl,@meteor m,@behemoth ba,@gigat&!gengar,megaevolve,mega");
-        cpx.put("raid-fairy-poison", "groudon,garchomp,mewtwo,metagross,zacian,espeon&@mud s,@conf,@psycho c,@zen h,@bullet p,@meta&@prec,@earthq,@earth p,@psyst,@psychic,@meteor m,@behemoth bl&!metagross,@psychic,@meteor m");
-        cpx.put("raid-fairy-psychic", "eternatus,roserade,necrozma,gholdengo,zacian,metagross,overqwil,zamazenta&@poison j,@psycho c,@shadow c,@meta,@hex,@bullet p&@sludge b,@moong,@shadow ba,@behemoth bl,@meteor m,@behemoth ba");
-        cpx.put("raid-fairy-rock", "zacian,metagross,kyogre,inteleon,sceptile,rillaboom,groudon&@meta,@bullet p,@waterf,@water g,@fury,@razo,@mud s&@behemoth bl,@meteor m,@orig,@hydro c,@fren,@prec&!sceptile,megaevolve,mega");
-        cpx.put("raid-fairy-steel", "charizard,volcarona,groudon,garchomp,chandelure,excadrill,reshiram&@fire s,@mud s,@mud-s,@fire f&@blas,@over,@prec,@earthq,@earth p,@scor,@fusion f&!charizard,megaevolve,mega&!excadrill,@scor");
-        cpx.put("raid-fairy-water", "mewtwo,electivire,sceptile,rillaboom,magnezone&@psycho c,@thunder s,@fury,@razo,@volt&@thunderb,@wild c,@fren,@leaf b&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        cpx.put("raid-fighting-fire", "kyogre,inteleon,groudon,garchomp,rayquaza,salamence,mewtwo,quaquaval,espeon&@waterf,@water g,@mud s,@air s,@fire f,@conf,@psycho c&@orig,@hydro c,@prec,@earth p,@dragon a,@fly,@psyst,@psychic");
-        cpx.put("raid-fighting-flying", "mewtwo,electivire,kyurem,baxcalibur,rayquaza,salamence,luxray&@psycho c,@thunder s,@ice f,@air s,@fire f,@spar&@thunderb,@psyst,@ice be,@wild c,@ice bu,@aval,@dragon a,@fly&!electivire,@wild c");
-        cpx.put("raid-fighting-ghost", "rayquaza,salamence,mewtwo,metagross,necrozma,gholdengo,moltres,espeon,chandelure&@air s,@fire f,@conf,@psycho c,@zen h,@shadow c,@hex,@wing&@dragon a,@fly,@psyst,@psychic,@shadow ba,@moong");
-        cpx.put("raid-fighting-grass", "rayquaza,salamence,charizard,volcarona,kyurem,baxcalibur,eternatus&@air s,@fire f,@fire s,@ice f,@poison j&@dragon a,@fly,@blas,@over,@ice bu,@aval,@sludge b&!charizard,megaevolve,mega");
-        cpx.put("raid-fighting-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,rayquaza,quaquaval&@waterf,@water g,@fury,@razo,@ice f,@air s&@orig,@aval,@hydro c,@fren,@ice bu,@dragon a&!sceptile,megaevolve,mega");
-        cpx.put("raid-fighting-normal", "lucario,rayquaza,salamence,mewtwo,metagross,gardevoir,blaziken,moltres,espeon,alakazam&@forc,@coun,@air s,@fire f,@conf,@psycho c,@zen h,@charm,@wing&@aura,@dragon a,@fly,@psyst,@psychic,@dazz");
-        cpx.put("raid-fighting-psychic", "rayquaza,salamence,necrozma,gholdengo,gardevoir,moltres&@air s,@fire f,@psycho c,@shadow c,@hex,@charm,@wing&@dragon a,@fly,@moong,@shadow ba,@dazz&!gholdengo,@shadow ba&!gardevoir,@dazz");
-        cpx.put("raid-fighting-rock", "kyogre,inteleon,sceptile,rillaboom,lucario,groudon,garchomp&@waterf,@water g,@fury,@razo,@forc,@coun,@mud s&@orig,@hydro c,@fren,@aura,@prec,@earth p&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        cpx.put("raid-fighting-steel", "charizard,volcarona,lucario,groudon,garchomp,chandelure,blaziken,reshiram&@fire s,@forc,@coun,@mud s,@fire f&@blas,@over,@aura,@prec,@earthq,@earth p,@fusion f&!charizard,megaevolve,mega");
-        cpx.put("raid-fighting-water", "mewtwo,electivire,sceptile,rillaboom,rayquaza,zacian&@psycho c,@thunder s,@fury,@razo,@air s,@meta&@thunderb,@psyst,@wild c,@fren,@dragon a,@play&!electivire,@wild c&!sceptile,megaevolve,mega");
-        cpx.put("raid-fire-flying", "diancie,rhyperior,kyogre,inteleon,mewtwo,glimmora&@rock th,@smac,@waterf,@water g,@psycho c&@rock sl,@rock w,@orig,@hydro c,@thunderb,@meteor b&!diancie,megaevolve,mega&!mewtwo,megaevolve,mega");
-        cpx.put("raid-fire-ghost", "kyogre,inteleon,groudon,garchomp,diancie,rhyperior,necrozma&@waterf,@water g,@mud s,@rock th,@smac,@psycho c&@orig,@hydro c,@prec,@earth p,@rock sl,@rock w,@moong&!diancie,megaevolve,mega");
-        cpx.put("raid-fire-grass", "eternatus,roserade,rayquaza,salamence,diancie,rhyperior,overqwil,moltres&@poison j,@air s,@fire f,@rock th,@smac,@wing&@sludge b,@dragon a,@fly,@rock sl,@rock w,@ston&!diancie,megaevolve,mega");
-        cpx.put("raid-fire-ice", "diancie,rhyperior,kyogre,inteleon,lucario,groudon,garchomp,quaquaval&@rock th,@smac,@waterf,@water g,@forc,@mud s&@rock sl,@rock w,@orig,@hydro c,@aura,@prec,@earth p&!diancie,megaevolve,mega");
-        cpx.put("raid-fire-normal", "kyogre,inteleon,lucario,groudon,garchomp,diancie,rhyperior,quaquaval&@waterf,@water g,@forc,@mud s,@rock th,@smac&@orig,@hydro c,@aura,@prec,@earth p,@rock sl,@rock w&!diancie,megaevolve,mega");
-        cpx.put("raid-fire-poison", "groudon,garchomp,kyogre,inteleon,mewtwo,metagross,rhyperior,quaquaval,espeon,alakazam&@mud s,@waterf,@water g,@conf,@psycho c,@zen h,@smac&@prec,@earth p,@orig,@hydro c,@psyst,@psychic,@rock w");
-        cpx.put("raid-fire-psychic", "kyogre,inteleon,groudon,garchomp,diancie,rhyperior,necrozma&@waterf,@water g,@mud s,@rock th,@smac,@psycho c&@orig,@hydro c,@prec,@earth p,@rock sl,@rock w,@moong&!diancie,megaevolve,mega");
-        cpx.put("raid-fire-rock", "kyogre,inteleon,groudon,garchomp,lucario,diancie,rhyperior,quaquaval&@waterf,@water g,@mud s,@forc,@rock th,@smac&@orig,@hydro c,@prec,@earth p,@aura,@rock sl,@rock w&!diancie,megaevolve,mega");
-        cpx.put("raid-fire-steel", "groudon,garchomp,kyogre,inteleon,lucario,excadrill,quaquaval&@mud s,@waterf,@water g,@forc,@mud-s&@prec,@earthq,@earth p,@orig,@hydro p,@hydro c,@aura,@scor&!inteleon,@hydro c&!excadrill,@scor");
-        cpx.put("raid-fire-water", "mewtwo,electivire,groudon,garchomp,diancie&@psycho c,@thunder s,@mud s,@rock th&@thunderb,@wild c,@prec,@earth p,@rock sl&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        cpx.put("raid-flying-grass", "kyurem,baxcalibur,charizard,volcarona,eternatus,roserade,rayquaza&@ice f,@dragon t,@fire s,@air s,@poison j&@ice bu,@free,@aval,@blas,@over,@sludge b,@dragon a,@anci&!charizard,megaevolve,mega");
-        cpx.put("raid-flying-ground", "kyurem,baxcalibur,kyogre,inteleon,mamoswine,quaquaval,darmanitan,primarina&@ice f,@dragon t,@waterf,@water g,@powd&@ice bu,@free,@aval,@orig,@hydro p,@hydro c&!inteleon,@hydro c");
-        cpx.put("raid-flying-ice", "diancie,rhyperior,charizard,volcarona,mewtwo&@rock th,@smac,@fire s,@psycho c&@rock sl,@rock w,@blas,@over,@thunderb&!diancie,megaevolve,mega&!charizard,megaevolve,mega&!mewtwo,megaevolve,mega");
-        cpx.put("raid-flying-poison", "mewtwo,electivire,kyurem,baxcalibur,metagross,espeon,rhyperior&@psycho c,@conf,@thunder s,@ice f,@zen h,@smac&@thunderb,@psyst,@psychic,@wild c,@ice bu,@aval,@rock w,@ston&!electivire,@wild c");
-        cpx.put("raid-flying-rock", "kyogre,inteleon,mewtwo,electivire,kyurem,baxcalibur&@waterf,@water g,@psycho c,@thunder s,@ice f&@orig,@aval,@hydro c,@thunderb,@wild c,@ice bu&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        cpx.put("raid-flying-steel", "charizard,volcarona,mewtwo,electivire,chandelure,cinderace&@fire s,@psycho c,@thunder s&@blas,@over,@thunderb,@wild c&!charizard,megaevolve,mega&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        cpx.put("raid-flying-water", "mewtwo,electivire,diancie,rhyperior,magnezone&@psycho c,@thunder s,@rock th,@smac,@volt&@thunderb,@wild c,@rock sl,@rock w&!mewtwo,megaevolve,mega&!electivire,@wild c&!diancie,megaevolve,mega");
-        cpx.put("raid-ghost-grass", "charizard,volcarona,kyurem,baxcalibur,rayquaza,salamence,necrozma,chandelure&@fire s,@air s,@ice f,@fire f,@psycho c&@blas,@over,@ice bu,@aval,@dragon a,@fly,@moong&!charizard,megaevolve,mega");
-        cpx.put("raid-ghost-ground", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,necrozma,quaquaval&@waterf,@water g,@fury,@razo,@ice f,@psycho c&@orig,@aval,@hydro c,@fren,@ice bu,@moong&!sceptile,megaevolve,mega");
-        cpx.put("raid-ghost-ice", "charizard,volcarona,diancie,rhyperior,necrozma,hydreigon&@fire s,@rock th,@smac,@psycho c,@bite&@blas,@over,@rock sl,@rock w,@moong,@brut&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-ghost-poison", "groudon,garchomp,mewtwo,metagross,necrozma,gholdengo,hydreigon,espeon,tyranitar&@mud s,@conf,@psycho c,@zen h,@shadow c,@hex,@bite&@prec,@earth p,@psyst,@psychic,@shadow ba,@moong,@brut");
-        cpx.put("raid-ghost-psychic", "necrozma,gholdengo,tyranitar,hydreigon,dragapult,mewtwo,chandelure&@psycho c,@shadow c,@hex,@bite,@asto&@moong,@shadow ba,@brut&!gholdengo,@hex&!dragapult,@asto&!mewtwo,shadow,megaevolve,mega");
-        cpx.put("raid-ghost-rock", "kyogre,inteleon,sceptile,rillaboom,groudon,garchomp,necrozma&@waterf,@water g,@fury,@razo,@mud s,@psycho c&@orig,@hydro c,@fren,@prec,@earth p,@moong&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        cpx.put("raid-ghost-steel", "charizard,volcarona,groudon,garchomp,necrozma,gholdengo,hydreigon,chandelure&@fire s,@mud s,@psycho c,@hex,@bite&@blas,@over,@prec,@earth p,@moong,@shadow ba,@brut&!charizard,megaevolve,mega");
-        cpx.put("raid-ghost-water", "mewtwo,electivire,sceptile,rillaboom,necrozma&@psycho c,@thunder s,@fury,@razo&@thunderb,@wild c,@fren,@leaf b,@moong&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        cpx.put("raid-grass-ground", "kyurem,baxcalibur,charizard,volcarona,rayquaza,salamence&@ice f,@dragon t,@fire s,@air s,@bug bi,@fire f&@ice bu,@free,@aval,@blas,@over,@bug bu,@dragon a,@fly&!charizard,megaevolve,mega");
-        cpx.put("raid-grass-ice", "charizard,volcarona,lucario,eternatus,roserade,rayquaza,salamence&@fire s,@air s,@bug bi,@forc,@poison j,@fire f&@blas,@over,@bug bu,@aura,@sludge b,@dragon a,@fly&!charizard,megaevolve,mega");
-        cpx.put("raid-grass-normal", "charizard,volcarona,kyurem,baxcalibur,lucario,eternatus,roserade,rayquaza&@fire s,@air s,@ice f,@forc,@poison j&@blas,@over,@ice bu,@aval,@aura,@sludge b,@dragon a&!charizard,megaevolve,mega");
-        cpx.put("raid-grass-poison", "charizard,volcarona,kyurem,baxcalibur,rayquaza,salamence,chandelure,cinderace&@fire s,@air s,@ice f,@dragon t,@fire f&@blas,@over,@ice bu,@free,@aval,@dragon a,@fly&!charizard,megaevolve,mega");
-        cpx.put("raid-grass-psychic", "heracross,volcarona,charizard,kyurem,baxcalibur,vikavolt&@fury,@bug bi,@fire s,@ice f&@megah,@bug bu,@over,@blas,@ice bu,@aval,@x-sc&!heracross,megaevolve,mega&!charizard,megaevolve,mega");
-        cpx.put("raid-grass-rock", "kyurem,baxcalibur,lucario,heracross,volcarona,zacian,metagross&@ice f,@forc,@fury,@bug bi,@meta,@bullet p&@ice bu,@aval,@aura,@meteor m,@megah,@bug bu,@behemoth bl&!heracross,megaevolve,mega");
-        cpx.put("raid-grass-water", "eternatus,roserade,rayquaza,salamence,heracross,volcarona,overqwil,moltres&@poison j,@air s,@fire f,@fury,@bug bi,@wing&@sludge b,@dragon a,@fly,@megah,@bug bu&!heracross,megaevolve,mega");
-        cpx.put("raid-ground-ice", "charizard,volcarona,kyogre,inteleon,sceptile,rillaboom,chandelure&@fire s,@waterf,@water g,@fury,@razo&@blas,@over,@orig,@hydro c,@fren&!charizard,megaevolve,mega&!sceptile,megaevolve,mega");
-        cpx.put("raid-ground-normal", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,lucario,quaquaval&@waterf,@water g,@fury,@razo,@ice f,@forc&@orig,@aval,@hydro c,@fren,@leaf b,@ice bu,@aura&!sceptile,megaevolve,mega");
-        cpx.put("raid-ground-poison", "kyogre,inteleon,kyurem,baxcalibur,groudon,garchomp,mewtwo,quaquaval,espeon&@waterf,@water g,@ice f,@mud s,@conf,@psycho c&@orig,@aval,@hydro c,@ice bu,@prec,@earthq,@earth p,@psyst,@psychic");
-        cpx.put("raid-ground-psychic", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,volcarona,quaquaval&@waterf,@water g,@fury,@razo,@ice f,@bug bi&@orig,@aval,@hydro c,@fren,@ice bu,@bug bu&!sceptile,megaevolve,mega");
-        cpx.put("raid-ground-rock", "kyogre,inteleon,sceptile,rillaboom,kyurem,baxcalibur,lucario,groudon&@waterf,@water g,@fury,@razo,@ice f,@forc,@mud s&@orig,@aval,@hydro c,@fren,@ice bu,@aura,@prec&!sceptile,megaevolve,mega");
-        cpx.put("raid-ground-steel", "charizard,volcarona,kyogre,inteleon,lucario,groudon,garchomp,chandelure&@fire s,@waterf,@water g,@forc,@coun,@mud s&@blas,@over,@orig,@hydro c,@aura,@prec,@earth p&!charizard,megaevolve,mega");
-        cpx.put("raid-ground-water", "sceptile,rillaboom,meowscarada,venusaur,kartana,zarude&@fury,@razo,@leafa,@vine&@fren,@leaf b,@grass k,@sola,@power w&!sceptile,megaevolve,mega&!venusaur,@vine&!venusaur,shadow,megaevolve,mega");
-        cpx.put("raid-ice-normal", "lucario,charizard,volcarona,diancie,rhyperior,zacian&@forc,@fire s,@rock th,@smac,@meta&@aura,@blas,@over,@rock sl,@rock w,@behemoth bl&!charizard,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-ice-poison", "charizard,volcarona,groudon,garchomp,mewtwo,metagross,espeon&@fire s,@mud s,@conf,@psycho c,@zen h&@blas,@over,@prec,@earth p,@psyst,@psychic&!charizard,megaevolve,mega&!volcarona,@over");
-        cpx.put("raid-ice-psychic", "charizard,volcarona,heracross,diancie&@fire s,@bug bi,@fury,@rock th&@blas,@over,@bug bu,@megah,@rock sl&!charizard,megaevolve,mega&!heracross,megaevolve,mega&!diancie,megaevolve,mega");
-        cpx.put("raid-ice-rock", "lucario,zacian,metagross,kyogre,inteleon,sceptile,rillaboom&@forc,@coun,@meta,@bullet p,@waterf,@water g,@fury,@razo&@aura,@meteor m,@behemoth bl,@orig,@hydro c,@fren&!sceptile,megaevolve,mega");
-        cpx.put("raid-ice-steel", "charizard,volcarona,lucario,groudon,garchomp,chandelure,blaziken,reshiram&@fire s,@forc,@coun,@mud s,@fire f&@blas,@over,@aura,@prec,@earthq,@earth p,@fusion f&!charizard,megaevolve,mega");
-        cpx.put("raid-ice-water", "mewtwo,electivire,sceptile,rillaboom,lucario&@psycho c,@thunder s,@fury,@razo,@forc&@thunderb,@wild c,@fren,@leaf b,@aura&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        cpx.put("raid-normal-poison", "groudon,garchomp,mewtwo,metagross,excadrill,espeon,rhyperior,alakazam&@mud s,@conf,@psycho c,@zen h,@mud-s&@prec,@earthq,@earth p,@psyst,@psychic,@scor&!metagross,@psychic&!excadrill,@scor");
-        cpx.put("raid-normal-psychic", "heracross,volcarona,tyranitar,hydreigon,pinsir,kleavor,kingambit&@fury,@bug bi,@bite,@snar&@megah,@bug bu,@brut,@dark p,@x-sc,@foul&!heracross,megaevolve,mega&!pinsir,shadow,megaevolve,mega");
-        cpx.put("raid-normal-rock", "lucario,kyogre,inteleon,sceptile,rillaboom,groudon,garchomp&@forc,@coun,@waterf,@water g,@fury,@razo,@mud s&@aura,@orig,@hydro c,@fren,@prec,@earth p&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        cpx.put("raid-normal-steel", "lucario,charizard,volcarona,groudon,garchomp,blaziken,chandelure,conkeldurr,cinderace&@forc,@coun,@fire s,@mud s&@aura,@blas,@over,@prec,@earthq,@earth p,@dynami&!charizard,megaevolve,mega");
-        cpx.put("raid-normal-water", "mewtwo,electivire,sceptile,rillaboom,lucario&@psycho c,@thunder s,@fury,@razo,@forc&@thunderb,@wild c,@fren,@leaf b,@aura&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        cpx.put("raid-poison-psychic", "groudon,garchomp,necrozma,gholdengo,tyranitar,hydreigon,rhyperior,chandelure,darkrai&@mud s,@psycho c,@shadow c,@hex,@bite,@mud-s,@snar&@prec,@earthq,@earth p,@moong,@shadow ba,@brut,@dark p");
-        cpx.put("raid-poison-rock", "groudon,garchomp,kyogre,inteleon,mewtwo,metagross,zacian,quaquaval,espeon&@mud s,@waterf,@water g,@conf,@psycho c,@zen h,@meta&@prec,@earth p,@orig,@hydro c,@psyst,@psychic,@behemoth bl");
-        cpx.put("raid-poison-steel", "groudon,garchomp,charizard,volcarona,excadrill,chandelure,rhyperior,cinderace&@mud s,@fire s,@mud-s&@prec,@earthq,@earth p,@blas,@over,@scor&!charizard,megaevolve,mega&!excadrill,@scor");
-        cpx.put("raid-poison-water", "mewtwo,electivire,groudon,garchomp,metagross,espeon,luxray,alakazam&@psycho c,@conf,@thunder s,@mud s,@zen h,@spar&@thunderb,@psyst,@psychic,@wild c,@prec,@earth p,@futu&!electivire,@wild c");
-        cpx.put("raid-psychic-rock", "kyogre,inteleon,sceptile,rillaboom,groudon,garchomp,volcarona&@waterf,@water g,@fury,@razo,@mud s,@bug bi&@orig,@hydro c,@fren,@prec,@earth p,@bug bu&!sceptile,megaevolve,mega&!rillaboom,@fren");
-        cpx.put("raid-psychic-steel", "charizard,volcarona,groudon,garchomp,necrozma,gholdengo,hydreigon,chandelure&@fire s,@mud s,@psycho c,@hex,@bite&@blas,@over,@prec,@earth p,@moong,@shadow ba,@brut&!charizard,megaevolve,mega");
-        cpx.put("raid-psychic-water", "mewtwo,electivire,sceptile,rillaboom,volcarona&@psycho c,@thunder s,@fury,@razo,@bug bi&@thunderb,@wild c,@fren,@bug bu&!mewtwo,megaevolve,mega&!electivire,@wild c&!sceptile,megaevolve,mega");
-        cpx.put("raid-rock-steel", "lucario,groudon,garchomp,kyogre,inteleon,blaziken,excadrill,quaquaval,rhyperior&@forc,@coun,@mud s,@waterf,@water g,@mud-s&@aura,@prec,@earthq,@earth p,@orig,@hydro c,@scor&!excadrill,@scor");
-        cpx.put("raid-rock-water", "sceptile,rillaboom,mewtwo,electivire,lucario&@fury,@razo,@psycho c,@thunder s,@forc&@fren,@leaf b,@thunderb,@wild c,@aura&!sceptile,megaevolve,mega&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        cpx.put("raid-steel-water", "mewtwo,electivire,lucario,groudon,garchomp,magnezone,blaziken&@psycho c,@thunder s,@forc,@coun,@mud s,@volt&@thunderb,@wild c,@aura,@prec,@earth p&!mewtwo,megaevolve,mega&!electivire,@wild c");
-        cpx.put("atk-grass", "sceptile,rillaboom,meowscarada,venusaur,kartana,zarude&@fury,@razo,@leafa,@vine&@fren,@leaf b,@grass k,@sola,@power w&!sceptile,megaevolve,mega&!venusaur,@vine&!venusaur,shadow,megaevolve,mega");
-        cpx.put("atk-flying", "rayquaza,salamence,moltres,toucannon,staraptor,enamorus,charizard,yveltal&@air s,@fire f,@wing,@peck,@gust,@fairy w&@dragon a,@fly,@beak,@blas,@obli,@hurr&!charizard,megaevolve,mega");
-        cpx.put("atk-dragon", "rayquaza,baxcalibur,haxorus,eternatus,garchomp,kyurem&@dragon t,@ice f&@brea,@outr,@glai,@dynama,@free&!rayquaza,megaevolve,mega&!baxcalibur,@glai&!garchomp,@brea");
+        /* PRECOMPILED by transcode.py: all command expansions plus the
+         * raidn- data, as gzip+base64 TSV (rows: kind<TAB>key<TAB>value;
+         * kinds e=expansions c=cpx s=seTypes t=topByType b=budgetByType).
+         * Human-readable twin: baked.tsv in the repo. */
+        String DATA_B64 =
+              "H4sIAAAAAAAC/909S3rjOI/rqlOkNlq575CryLZiayJbLslOKln47AMS4BsgKSU90+Vv/m86JdEUQYB4EY/5x3mcTu3w46U/"
+            + "HK/9+fBzhj+n7sd7e+2mp8M03s77p2ncvcIL/exHN3S769Tv4GU7z/DYPPiBo+GJfqPneep33dNl7Ofx/PQyfMAHnrY39RF4"
+            + "jgPMh/VHnuZr1w16Dfj0B/3oMn/sjvDNl7afPuA9TklfNG/1l9UDu3pYhlqBmlDP4xav1kVg0a9/wMKeDsdxvj7t20m9gAe0"
+            + "RlwEjVf/Cb5gQaDlGCD0ZD+CKfdTe4B1q6/jnxYiNcCCrTbJvtHTRZtlt1oPou2wH4Zf/0PzudWrKfUem3n1KLceD8h4bWqk"
+            + "xbKek7ZCvcAV6KchogOE6pERUvE3EWZxIFCg/jluM443LxGTCIqaIcBpMBQREKMwQfI/Hr3SOI9szb7ZsZrC9GBcXfJZS9u4"
+            + "RpzR3wh75hLaUm+Jtv23ZpP8UUS1LIoTCD2aTdDi6IseROc8XKGa1JCNxhnC7xMuvjVjPcIJj4lP43pkSsvRe0s/+rt2Prv5"
+            + "NMqyr/iLPggSQwg/SRQUPNLEohdvGJz9TngAop9xnOmJPfH6B0hFBkT1KYteZm8iNp5OF3BM+9BjfcFoTS92Mn/RHvKYZRha"
+            + "8pcdfpITIsIuaDJy9KO2i74e804cifTjHd1ogTQqpCKP9ZlT5ujX/AIoyiOhdADSkiUhfnlISxoKPJ44Su1KMlTTGCs7pcmR"
+            + "vDjBggMCcvJXyW4SkVNAofy8RFcecqRtNMSmhnqyVt4FTYTBEkL0syuPKNARH75G8otAMSQWciD7U/fakE4EaTqPRzGO6wYj"
+            + "QpLxX5HagL8OOLkbwipYqFl5g1iOk4KV6mIhv7QDYyaTTiXpZW4AEYHHRngQNfKDLQxZhT8WcU6DA0j8UYh6n4sZ/ckhNjxu"
+            + "Br8hoZmfWDET0IvZNBrFSBkaHuq7erSvMEZvNMLN6qzcCVULM5RFezhIoZyg8hS3YOmE7Ei1xHcsmuMxhGmzOwxUGse4jFTE"
+            + "2FGe/hu9YWUJfs+zIf5JDZoQv8FYBmGCDWJ/Q0pCOArhTcfiyfUUYI8k5C8IykNhYenBzhO2+V18zkvfIXKwoPubHIwzOivO"
+            + "J2xR0b4qrD5vL5lRvB4iATp1gd2BqzM/NiOQDhLLOWRwODI4zoF+Te8DfNu1wyuFU980YiCEUYTBrBqsB4YnmfhZaG3gOEJd"
+            + "DXQBAokne4qHGRZw7XClZkiCpGD9et9o11M9PlwXjbV6lWCv+kOtQqVX4d5YDITWp2VtOIowwDkcaARtfSgboq2nkbT5dUB6"
+            + "25/+IFqld1Z8asaX0e7TmvQnYw0kONG0HDOQ10LSkaHZ7AaE/hSzscFPeXnEfMOqH+mrhO0kGli0kEQucR9k2Uw4Tj3yyS2y"
+            + "6O2QlJunxkGAY/yZ72zIGKv+l3wPRCpn3DDfeuSdfQykqVZvbUk7hmHh9h3uKL94tYdun1gZ4j6kBweMMjXL3UDaE+fyEXyP"
+            + "Cac0UyaqLo1P6I6zeKJVe/sjiQEa6Sm96HVNhbs9cuYjapRPAtGxSsf6rijGBxUMDj0LkvJnmI36RVaeqwF5lwLNhGCLBop5"
+            + "7ZE0oYneFD0iBkgan/WE0Jjswq2XO7aZAiKiIam1FCvlNDAxldwrXti6LaK/REYZErj7MP2swC7NMHZPkrOj1sCb+lZa6yG+"
+            + "zeccmgkV6ZkSv2c07GruSqbu0MP/tfP92O/39910m+/beRM9Vn8+9fft5tS9X9/HuwZwfNrdjx8X2LrtfT5tPttd357vp+7a"
+            + "uvHDeLmdzx/3C3zVDj5tLuP0oTwYn/cBILMv4MOnbhi7K0zx+9a76bc/0fX9Y3dsp/6znfZ3vfmw1gHWeNokz8e3boLnUzcf"
+            + "+6k94eOX+8tt7hWrRRjDd/on2w3M+Nm/dufoC/Fj+gA83nWXYzuM53t/3vX3U3/ewyzHrr1OrR19ag+nO0A3Dlf4bDDHvNl3"
+            + "w+U4/gk+OCuQzvDmNnXh8J+klv94/RgP8FL/A1Y/9QeA6rQJHx8/9tP4dIEVze/tCXbzeidyp1c7hTv77nSDw++/UYu5wpnq"
+            + "kp/J7y7w7vDRTu1+nON1nDYv3dQOQB/XKV2J/PICL1+BgAeFo9t2O3RAqy0Q3mZuT7dpvF7DL+3EN2qmy9SfgGDObbJNP536"
+            + "/SMm9usRjk43KQL+hHWOU3t/A4TeLwph283U9q/jzYyCbXzvh71eyGf3Oo2nuyLSg3m63fy5Ta89kEPn/WTfz+rVqT3jGuyr"
+            + "F/O700Y/uqmDqr9uVwXfaS9qy9106Ttcg/ccKPPcfY7nDmcza/55pZvPGcj72sN2v9ymj/vLBCcA6CV4OHTtiz7Wb935Nre3"
+            + "6f7Ww3x67Bw/ncehhaGv7XRtYf+n9nM0E2yB5rv53N6AV/lTwNqn277DR5fxHUB7VwR9bD/gtKmz1d+RLb7CY5gWmNz79RiO"
+            + "nzdv/U7t9rYb8Cd22VM/DO12BAzp1eiPbuOn9gM/td8bTh+czNNdKzh31IngR/SUfLJXNVfHsE09vlObc2pP4/xOC93f27d2"
+            + "gKUegJN1b2M/aXyd7kAK6uh8tqf2szsDd8TPbrtjdxqvx6dtqxhX+2cHh2cLO42v9WTbiCHohyfNT8lPONx2cBYA7nHa3QFP"
+            + "MNdpYx7uFOPGh44FuoeK33TDvgMcju+wO3O3mxh4X8bdDdZ/hFOzm8Z5xhl2w6h593hWc9ymCZew/zi3p15xQPdCj6cXgOJu"
+            + "mtpXYOT3/XgDVqA+DBN3inexb/WXFOaMnQpjzu0VjhDp3v9zn4fb/tBpKjx0Z0DAfehBNNnHJ/MYyG4PsO78V9uu2yt6YaY7"
+            + "bc79EY7KYWS/5RElyM+9/zvF7n/DeWR+N2/O7QGOD8gHdlbYY9jqfce/7N7at0kRtn17uJ3V0Zl349BfOvZ3yBG0Yaf+s4ft"
+            + "RWFxmbqdFjzh4w4O+PE30jIQweniP1dM+MS+Ub8YQPCNir/h8xn+qfAaPbYTsS9+ww86OA+IFnjxD0y0G5W4nbRW0cPf+FgP"
+            + "eVJvIjFIE+nDQg6z9uP3rf1s722vuTUec31gjGiHs3y4w3ClYczt0J66866z6gc8B8A7oGO9YLy2e8fxnhKD05Pm8fHWDVc4"
+            + "tIfbfL2P20GdgODZUZ2Q7QZW2+9uZ//Y6WnnK4jiyxXgdWtTR4E0cTqrcNhe1C9hvlNyfvG5Vs+SF2qSu31jptFPTxvYgFfY"
+            + "r1P++cvtqtjD0F57OKfA4Z6ObuaTzw3DWQ4tsGig1uixUkEPms2EUylEqjgYx4a0+Dp1h/aolNL+PMM39LM//8z60/RM6ezb"
+            + "3j6dd/3nGI18619bLUGDsRt4BIx0BElHz/V/lKiwPMP/AdDGvFMsuu/sV3F9swcWLfvajdPTSZ9MbcfsQf/e9d1dm6wg/9C4"
+            + "HZSEsyQ/n9odvnjXOnD4AtQ5JW+vH6C69tc2eApI66Zx3+6uHwPzCaXyDz080ho9LU5xqvCF+QF95DrdTnYy70egll8A60AN"
+            + "bsH6V/YEWhHbaq37J901/QDFaRo/T62j0dM4AtlvN/aN5eDmTUzVNGCr5VsgDewLRhx475RlB+rgHZSZyZ/NV+qP3Z/g1RZ0"
+            + "vuu14yccbmc4Mtw7q3PYd6hzwIZQZEu6ZdupU5OmL8bbVRk1TjzaN1r2trKGY3l5+BFtj/g/2DpdyXFH9xU4mEpPaP9o9hjN"
+            + "tQECHw6tm0oPh8f63/01nSh5sxXfGODVvqlwM3cGtmrUdrpdFTTKUOh6+IH/OH6qfQZKMgl0AAev3YIijM/N1N4jmsAR2S0i"
+            + "vqMSxEqE6+Ev400dQbehbm0KHvQt+Pa5UxyVgujUyuhl658a/W6+nWd9YAwr2t6GobuqtRp2pFSBQKW0b04GgXqqHrjik+Jr"
+            + "npgOnodfprP6kyKYfsQq8r79/IzdEGCYKQGYiFs9duuEkD34+gVYWO3l9jSAHXhXBu5dHQVlr8Gh6EAiHzrYd7WcrbY2YOjr"
+            + "+Dqiw4KG6qewNTezP7N5o2RcO9OaieK2xhkDf2kvhxMavuW/lVwC8KJX5ly76wIfwhbmQ1dBf74CNECescW93QAHgP8poyB9"
+            + "J5jJOz2zNZP1H/0bfDi1fbeCfQkbcfsD/Oc+A5u3D2FWNDp5i+zUje8gHUGxbbXx1lpTzai7oSkI0ylLTbKLONNrq47sSR/8"
+            + "czBao0Y2mDjbaCtZNmoyMkSyinrGAMho8XoTUU/nNW9BMd4mirFRpBXsqP+yCi2Q+wg7cj4DfV06YFTbrn0N9E6tpaLeufX0"
+            + "Tl5Lg+XNF0WrgVa3FVRJNaPS6WQ9i1XMQI4BBb0FSpyaSutRgra0OQz96aS8PonCspUUFo0NEwkDdvIZzMBQ8G+1KAJ+ASvU"
+            + "3MZ/JaoLal4S7wl5H4ZWmQi8EBUltZ5RCT5Owm03nDjcao9ce4InnhxSE6HEyUqJDRyl11ZploYrK0XxqjkDJzw0FcqcXxHh"
+            + "oXvt5zl8emxBpwIu0QWPf3agFfX2xoy+aA+xd3DJvUEqovMtNM9qeZtnddw3z9r5sXk2cmTzbDwPzbNiBfBvffI3z8o/snlW"
+            + "7hD4m1wWzS/7XT26+eV9nn7Z/KIFKGMAgB/eOv2nAUSLDXT0bAyzNwa5xfiGDAR30B33b56RxW+eSQxsnjXX2DwTscN6gbCb"
+            + "Z+Vn3jyTv9T8ARArN8DmmXgM/Woe6I/35pddlflJ88ssR4AJRRfB7YSMdT46D51xxzYeBqwogu2GIw4LAUmyeVacoDEvtwCt"
+            + "Fj0wZlLbrzy50lY3v7w10O+aX3YxyWhaE05qYArySwLcWJ7sYcc4NqxjojFI0Qy68Tf9t7f5ip8D5aBfQxHaeQ9guS/oAbB2"
+            + "mlVCAMpi65Vwtizp9J7H0ZkMVhhb88LppXBotHoCdN5rzGiGBTtEEmyD71+aZ6W/bJ6VAMRBWzgvikxh6SQCFXzofYFfDR9w"
+            + "aOw6BXCULsABY05/ejpQl/S4sAMAT39wNgArwPDCtePpjw7D5tnTvzMLL54Qq5GkW72xREw82HlRjKvKiW2SuJaFNgY/iA7F"
+            + "5c4vPnvTEhseK5aqzsIZWIIS/U2IFP2T+Uq/7BVfBParwG9fm1/mazSPAcq71Q4OSAKQo2davkOc0RXseREAyB+jePF4rJSz"
+            + "SvEIswzzPjlg7hhpbSzmzgwbS49Vjj/7bE0fpIQ544mxLBp5HF57mGPFMmaJqVm6Q20wZc0pAETBAmem80/HiOPL4eGng7SM"
+            + "RRcOkdFHrVfQYw3GBN1Y7c0pQs7oN7pkyCg0dlDn9CkP9Dh4DDoU0KZy7NEYAFFbuEA6RsmDN6BlqTOjnAGbZ6WkNr/cMgV4"
+            + "lDbMsTmGR6QczxqSCas2rCBSB3xmF539RAVYz+i0Wl5xgAwrT5hH7TlCtq6ZRnia7PFBjh5oOzktwK1N/97yhMBXWSAvayAY"
+            + "HujTmaMs4wD0aAyWCyZFUyCt5pf7vvotoMN+EScw5w0nkLBEBknKBCzpeTLIGN/GTiFh2xieYKwTK2WUkW5ErOEKyvloeIMy"
+            + "exRcHUCnHCtG2CgnEKjYbjXeeMCPWZoEkzKJDFlxLMKBZLV4vDSwhqcnVn2bIWQQGkhjLUSMAeEoHP/mF302jyO0zHJqUHJ2"
+            + "HLU5EK2oizUihC3UUlOFKKO3ZtmEIGHRLmRUUFLgPCVI+1OtZ8W5Pq052njaqPqdQgMaryA6+92rf87Icm08pdTT7PTvtfHq"
+            + "P4YJtaELhw7XIrNxJL5KXu4Ig1NXiYkbajPMXNFgiB9LcyEv1xSZRU2NXKrgEBnhZFkDAeM4hCCbQt3BQYQ8gpdRMZ8oiqYg"
+            + "n5zDFSNk3YEyLiUbjOZQFtkWnGWU2BXGIaUwi4FuX5G6LiOeg6vK4uOhNscvoc/YEOS0DMEArFAzArgyphMHLQnA1IiyXs7E"
+            + "aDKwxbZHYDUp12hiNfngkhGiZEA1aFP3I6W6WH1iALfU6KlLERkm2lMAdJOSZKREJXwFCbaOFtHsYA+UgLCGPUazQwezYnXd"
+            + "HeLAmCXiKrOnLO+5c7UdHk1pd9UoKiGr8SqJIEaupCyQvEep8niROc+7xcIjlpFzHjf0DlsEW3LYyMz3QcPzFVn6BkADdyVo"
+            + "kocsJTmOa4pUuEaS1Tr3qqiQ3PyPeMDIW1YJGrEiViinGkjBCVgElUSXQWmFShJARn6ZR9J/WT+G6Hd2ZotlEe5KnnFkMN5o"
+            + "Z70k7oycU9qZLlVEKBuVDH250+TMScqW8IxJhkcY+oHFtYdTFhl2YgZN+ktkJftASNdNMocQnJo8a+Ccmzxr+Fbvpl/iyCmv"
+            + "qWDKuTiIHJ0bgzRYErmyUwOdNei+CGUuOmtYbwf6a4rHKazHJDov6lw2Dee9yDhoBP8F47fxITFcpA62BU4NCw+6FHIuDEKd"
+            + "8mSIbguFAd95gXDY73sKE7kw0idZwGzlGbtugz7mrEXE53iGMcBMdJclSx+V0VnE3UDLyzpvkD7pnj6SYJoWaQlIztK1lavX"
+            + "FfN3kTaXXcczFJq5mt+xnmpG/ajhHw913+PVQnMEGFOZISoXP2LvFF10oIkItJSH5EWE5atKyokOTK8bT43nld48q5ONFz9w"
+            + "dOw3LWn+st/MwqJtLI7ROQkpMvz4osoI4IS3J9dVpC9pAR1iDYNYMp7qov7nV5lbdW9qzpzdi5r7UwMu7kXDm1Z4C2QB1mcM"
+            + "t6R8b2pr4ZnlcSqT2zfHFyyhGkFl0GTRpmFBvS+QVJxuS4i0plbetVQrr6JYqge4K4lrDf7X43WCMoj5/Y+3PeZ/5kbbsr+G"
+            + "w4HR8EQcFLW5JZjQxpMhrwquEKMsJKksO6ALYKQw9hrYRFF89SLYqzSZYwoJ+blQRWdh+Zdy/uEhXhGSYsoevvlSzquQWRXD"
+            + "Z8C3AeMV0XwIZj6mD6XRd8T0hffczvhIxU+CrvQG3N5mEVqi++6GNZgiZQ4vspB/SxfcZilE0+ULb7/+aFWcn2yPMJf5BcuE"
+            + "v9r/op0Sg5baH1UXkkkAmrVAdPiZ1QLRTxbeVRoDJIlAU7aI0QlVlrcXbsYRAOdhS8Cjep0FW8NA2KQUGDuSssILiTCxK2K6"
+            + "E29OagkSbRDR4mAhS8hPuCFO40hS7xiAKZ+yr0KH9kgKHBMhZGe0AULcMePizWRoufigjqKEvhA74xcAXhky7PTILDOJr161"
+            + "X1eGV7xDrvbQBJWKHyviydVYliOj7STuK6HSEbEQBxtdYUmB0R4wK09WCLmaJIKMDBXZaMwiz7kME7T58HsozCGPtLAKOV6J"
+            + "NjJXKlSSNJ4ao6hdAhwDYi6cOgdnpLjQzRCWQfEiqEOhEYNGlk0KW2XobsowK4J0OSlcFbhbz0XoVkgiR1GZFEmQzJcS2THa"
+            + "5LfrkaFpI5sxzojwkp+84BXMwjIGdiNGG1IuVlMONHRJWc7w1tlZvPkdwYWGDcMGPaYR8nnPuWgFnzNNIwYZGdgxW9wEXkTM"
+            + "zV/CEQGdBgN67jg9Sb58SDAYR1R6fhGToRrcRyCu4khKUjGdXM4iTiW6SlcNIuL4yvd5luhwGSeblDJLDPoWJZggUtHgXpBg"
+            + "kpbqD6Aq3jdbWPI3yiIYUkrgN+QAxj0GatR/J6ttPFtWpkWqiiyyhUixYgwbvLDfx7kS8FyfhAB1lQkCHuwU9UYILSQH5KlT"
+            + "EmtVuQBRe4fVSYSe+h9dTXixokkUh5Qy+A1hHHFLilXXE4TouksJJhvlUriWUBhdldkV9NFYlCXAcJUwM4C/s8zmBrAXluvj"
+            + "peLeHw+klXBNSx4je5LttlIM8chr/2yAR5ZXNjFZfpcJkPaIycrujN/cix2QxHnsOk+gEjPeVtxsMB1t4rQikbt45y5NPnL4"
+            + "4zOPcr7KhNusvd2IOvFUXD/55WsCLhnfO+HlUmthES+cfnMXT8HwFWiLmgjVOekS7kImj9GVRUedxFm01SN66WLWktwKhDE7"
+            + "MWhMjE6NpcNIuOSEJYZOPkSHtXfWhOkEHZpq4nQYgEsXb4neJd27SeH19XdwIVhismxy8+TyVl1iXylZFu+hkNPbyygxbbaY"
+            + "3ldMpo1g0+oxg406jZmrsRElUSXVNkxsrXerJqrOS2tsBG27VqnGhNNFhQ8Mw8gE7IRVD6IKHMV6B7bPWEJxtZlxTMR9k1yB"
+            + "2uQki0FSkgWqY7PiqtPggtZoj5U8m3R2y+vCgbSqVn8daEh9lXowB9cgK8buBxFwpo9SirgaTplGCjv4WI4YRwxX8kYXI6wn"
+            + "qMKbVoWTFS+I+PFV4YgKa8J+BDJklWO0tOsYiJwmkcu59x2qlEHhGZxMbA+fPZG1OauyhXPJ90sCfSzFVgT4uHQ+KbxnjXpR"
+            + "gbCg32KxsJqsErvMHaMLS3XWsppxojkK6Mwqyilw9foiA6FV7l1ms15zqjJGOcIOlTFv5DXISAnJqIthF8saQ4XhlWFYTybB"
+            + "W5ALkfsgk+eduEgcM9XsNYULq6PWpazXpdMKSetJOm0mRX11Om3cE3SVwsipwDUqY0SUFcHeER1W85CSL1WmU08MZHJQ41hP"
+            + "hnukjg+OFJegLPKhLqtAlybxJGctk8VTU40Oz5sManTrloBHumMKQwXrJ2AItibjPmX4PgYExmusYfec9pjCRWojs2yGFWZq"
+            + "BjZyaKNme+XagKkG6VcH9KxoO0JfW9OCeLQ9XKGwqBPwoxVuCjsYV6mPlnJN+FxRiSRCRSstUT5CddL4CRytoj9xnRLpWi2X"
+            + "67GYCjN0Z12uvFIsYRKRpYO84sa6XG7YxqwuLjpsGc3S6sN1+jDjPyVmU1FQ1Ta0rnN8p8ClhnWuVERqV5fKRYgYK1jWXivu"
+            + "Iso8o8WeW1t4IOv/DvlHRa3olIswt9Yi96Ae4uXDJfLI+uMWcPxSmSP2Kru62JHf9vyhsonjNu3Zu85E92IgE312CcCSsRYH"
+            + "NjHXoLEy5nPZEDIbofpoPJHVqxKw5HjxCqiYitq1Xg82mLwOMOFyWjp1jhPVXLdX30tLjNK/o17IFyWNSqJFQY8KSY5zwwkg"
+            + "/Rup+6hLkeLxGNUIDEhCjszqwotNcNsnV1iMA9wrKi3WeAkMVEJ6TMLqbcim4+xezKTTPeyVExPHyVzGS5Gc0nkL7nGTAxdB"
+            + "x2sef3MtQgKMNI+HOmChPycLk5fgaSIiuNyYstubVIw4TIJPfuH3JOvtJsiCPp4Pgi5W36iBMKdoyEAL7l9pA1aFsiBgshsn"
+            + "hc7z33ixOTHXCKBBWuP4hcPAYvZQAZakbXDR+fkoo4hHSjFGLKf8VkrUWsai8PWcT7Wm0GIQnyN57zNXY1ajL8pnA9v6WxcL"
+            + "mBdWW3Pr4nCOYbUV1y7kJ8aA2pLPDSGrL2SaOr3FCtyBg7tQvpQyQyIP91eC1xEwEs1sExLTi810HcWGoiZqx3QMbSj3QzVs"
+            + "g/9/U96nsM+I6uIWLBrn4fM95DQs88E8QNUxOrmIbtu/yG5LEGWVjeKpCfYu3dMicUaAkVh+sB4fCFztNYuY0NRUBOJkPBuZ"
+            + "GjyWCa7rybIkSCdLklwV2iQryyO5ilgdKcmgkt0vuGOxkC0pxpMvw0NY+c4gHS2bZSOzsnCwj6g0nzpXP5i3LYvVhGsQpiEr"
+            + "xQ2s67lnYfC8U/kGfAYK8kat9gogVJli3HIOfAZUUY1i4MupUhJ01YBlSnEvqS8kB3pE+mEuxiOrJdbGehBYmYJyuQKTXsX+"
+            + "XIVJh5rq+pIuwugrNSYRukLthUw5ZKuaNHWFkP1S3BzluUDTaCOCUPViQhmCVY4W4IIDmBLdSSdcPm7A0CSlOaaBA654t98K"
+            + "txpNKLsWVgzyZXfpVjbEV+FSNkBQlgrzl7IoukQ+Xx/H4pBSkfOXdo9gE/4ypkpZMGu4hBvMJQVc68u2LkuQRhBXJEgTaLbM"
+            + "TqnhR23ZnUZo9lEquZNt/1FVdSeGTLjDrMKal61f3640b/xjxr6szFcwRA1XrclSrsOzMDWJiRSrKClcl1dAsMncvjp6IN+P"
+            + "phw+kGUrbChcBefXwIkJtn4+7Vt3vs0to3UgKiih9k3dMKnuEX2cVauljGrhPo9DNtnZfkhP5v1bco+4cpTqu14v6jiCts5f"
+            + "ZYLeuAKvbDfqtM6rdMn0PT2pFWQZTbi6DBmjBuc5oWBAp/6bLHRupXqqAKpMQxrHhcz2cPZ/WK3b3rOUanTPw7qSJVW4Cqoq"
+            + "r0i6iope1KdbNYneG+RdZTw+Zb6oAHvIgFkF2EPWVEZm+HjlSwxcGSOacwfH9dlNPXbr5I+taufUTwzptIs4+vi/XpadgHvI"
+            + "wuwE20OWZifYHpKRIAeRqwX9vSXVCLK6QkFSjvv3Rc4mSe8VkbNJxnsE24JSQWyJIKZlo5csHZUNqi8VhLyfKnAtP24EXHVE"
+            + "ZiYAyTYE+uxeJ11ZU45CInC9KCTMyjrUZOBG7FMOAKFfrr8SrG3RQ+CEzXnqbgRL/XlEIWCAe8RLQQPbAingoarI/Q2eJM5v"
+            + "UGVw850yQNFiqfJwTKqswp8q+lz0upPZC8O7lwZ2a7gy/pAYhVGPLyqpwGLO6/MV4ifFX6ke3PIgMo0qkRBFFH4Cg9epOwWQ"
+            + "LPIkXYTNbbnA2VtGlrQe/CnA1l5tV6ypO/Sqcs1ssETieBgvt/P5Y3MZpw9VVvoT3g9jd1Wi9djv92lZlosGaBhVMZ3fN7A8"
+            + "nne6Z5ya/alXNAQS0CuHIfmlwqaGZh3pgWqv19fpK2DgT2k7dDmNv7NRLG7EVwGAP+DgHNthtMDY3Gr4+eU4/kHgaMPwUMTM"
+            + "ymlxtieYi5FXW3EFlaOTcm2kxDz+QsR8QCIk+zmReL4Cw+bwoTy847x5gZ0cVPEntIIHwPTcnm7TeL0SoLRlti9TykrMCXV6"
+            + "1XD7M7UfjRxNCxz4ooxqJvFlPYPQjCjkFzCTXZR+b7dvETzAT1/HG4FFWuLmz2167a8qRuXUnnGyjYbnhuXpL7C/zbP5Dm0j"
+            + "Rr4+jt8dN3MdVJtXkAqtPuXdfG5vh6OqMDjd4A18/+PUnzfwGgTU+/W4eet3aq+3HWgQ+nO0oeqal8k2sKkvhF4v7yXfSOs9"
+            + "kA6Z9lnmwk/1lyrKBa/kg3CcvwCHVzIO2YFesJUNVHPUCHznSImDEMw34NBP7Ws/RhciOgrB35z9eNsOnSvA7McgKE1hd1Pm"
+            + "3W7qdGsL+11zE+4+T7/MJNIYMbEYFueM86GieWiLyD3KVSuNavPZ5gubbdehKnnuj0DyYI+c2wPQ8l7Rp4uHCMvz+cEP+W4L"
+            + "dvrkjf2e34gNt+d74HAHzYEEZss49JdubwthWnamwwT/4308DZP60lrx5+ZUYf0JLt4sLuniyu+4/sdO1fl464YrsBMAtt/d"
+            + "zmPDVa7BUi9YfofphJyWkeraV+tr2Q5Kf4WTkbde6YT9e3Dh1ObIhelVyT2l9cgM7bUfg2bsLcgWRYfChWXsesG7BZpmMXtW"
+            + "r/T3xB37BkhcyIjaGjDd2QsN6fJi3vWfruK1cRBEtxVfa92rVAj1EdmVinuxbumOB3WgKoBs7bvJjwOEWWlrtDeMKQ5iGpKA"
+            + "dQBapVJrnfO57aZx3+6uH0MTp8Gv7zzippc2zH1W3K2vQbNRFuPQAzT67XW6nbzgXTW3YdFSnedMcoRJdskkSWDzdboaSzJy"
+            + "vpYWoVu76GSbyE5cBQsJPzPlFpT161XZKGc4mxSZBOxdTU1bhuyU7UNluk+l3absTEnTKXqwZTtO6S5TRrM0iZB1Pacw3qum"
+            + "DRXu3lfACqvzDId2g7Nphyr+aTYP9vlvT6Wi/foiJH66gBpIG4Qu1CQoJK377Lze1uWY1LY2ugAFodaWelYbe55dQUwEeP3K"
+            + "DFF4bl49mVGXdOMz32CJercZBcJ2Rndy8wrn+mkAM3rzB2iza+fG7+LGqEOGNx06RUx+SzdF2QgzMHf7TVsz+5f9pqgefScc"
+            + "+OR1fB3xL8DqTWsJCkT9pZ87V3pkRfmbylo3VRWl2LpECzqPESQLrkW+L0nKxDd9y2XIzgugX9+AS0yzMZEnSR4HF84mNeSq"
+            + "SbLZ2dCnbDRXJlYyiNtioyTTwK20Ne0X4yN3YcnDH8sqpqZGzdryxElhzsrixK44pwHlvx2sVRemtfNjjdfFhy+KB1+SprAs"
+            + "QWEXXOv+qOyK5ZQGY+pwunWxT64QeiblJBeMPAOLstIqszgz7edy9RfDk1+qvbj+1H+1Lm1VNdogHP/fqEm789KJ/78T27+c"
+            + "0L7z+/mubeFu9Kl8E/cl7dtXdAA3kCgjIJe4yNTfjvwdTSaHkS4YTNB2cM5RNnzNdWPA+Ka47bTKChMQwN0eZyM5KhplWEEv"
+            + "tVD+V/rq/CvddBwbrjgmWV6cnI48U5aPS55FmzJABW6sALK3qnV5N76Xxri9mBSVjHAp+vDWSxcFD5Lb6nqBQoeqQvVADs58"
+            + "KeP3ipOjwcmoyZnqWY7FyXqxgSnWNIlh49UFluHPNL0glRNZdiVIU02pYgbg+iLFUVOLUpniJK+5VKDYB0cqbP69FRD/9dqH"
+            + "Hkio2DyGxqnhEU1/Bp6MN0CELGv7R7At7xITQKLts5oU14yIynA2Pvuay2oVcq0XeDIUQPUVyipKunCn6qUgfWqLt1QRWqam"
+            + "y995cjIZrLLfxsOZVOJP8s0U4SNxY7C3QA9V4LDmp+Qw8zTTnGuD8aP5JU4iSZNzp/ndAitwI3lms0pNyUcb4SdffFJQbBYE"
+            + "Pnsmm1GtneqyqhyNs0RJjwnKD6TlaMx9Q8iWUclmbTzsg1L02WiQrHItmmyV9ilvmLL92wP7NN+tvcpcDQBaYMy5qImk5kxs"
+            + "uhGm4mozguGGqqaLa3Qi1LTYTJ5kQTIatltxpplXfH+UdPCy90iWADMdvHAjSMfWyOA7dSWtvJtfdgX4mQgk5vbpWxtm/B+0"
+            + "yvABQgVuaeWtKO1DKLyF97DVRbcwFHJVwa0QovWOdotJFxZbX4CF2EN1ARY8bSVvu4ZJ6XK5DGG3aY7UzPnh84HDQhFIZGlW"
+            + "MFcr4n1dqYgAnqgwyd/rStTQ5C5EHBhx4FfM7+h2pOEgMQJVhKQoPJfA85/Ktv/qVYKG6Jty7L3Iat8zJ6XbL8izN0HfdSxu"
+            + "eVp9ZTJ9OZnyG9Ppg+sRp9BVVDhzEQOJ15c2XnbvSsnYU9fKFyNmBTR9+aIEYUKdrioIQtby2MyMrL7Hg79a+4uBSrW6JcVH"
+            + "07J0xOHQYOVa5zKRzRTJZG7jORODN28xUyUBCbS6Cu3N0R1paQ4lkb6WoTJGUYvJS/Q91tIdOk7F7hwsSAmVVdyYpDY3e4y+"
+            + "DpHpBCk2CXBXtRmI3BVwVGlfZhfc1XCOU9TCI3RjWlp/1NzoNbGjlC0/2rAHJV+EtEalMzAJZbL/vntuBMjXujNeU/eVhg8A"
+            + "i4KgGzH+SwOAS1x8YNLY5wgaWytVMnpyaOIKl3tqTyWGSB3SYH4LhmyR1PVFUXkNQqwBWKVYyKVQY14fw2NLo4p1T7PBVhya"
+            + "5MCqLN/Lh1nVc4VC+eslul1Q55RbOusWkUTSSp2uUPQjLfLhWw3enSxmZrrSQVLJP1vxuljtL0465ZMDI3DQlODSIBwXMCw6"
+            + "ifC2wspzzSUZH4EByyR9eDHpmACyhscZ60F2o6Z9eaOYGCb1MfCsIk7CJFYbNepkaLaQmpR+IeDIQWV17iJfc2ijSNgYa7Xx"
+            + "sAHeKqNiHTK52FgGLE7vLt8iVXRGje+Oqpuj7taG/Dio6rVvpwalmW4ljTwnbtdm8yWwoN799RJ3XMjvgnJ3Jvh3UYUqkySV"
+            + "AvW1fIVc3V3RVM8nLXB2eoUzyINovc97ZdHxcrlx4zLya8WX3UEWplI2hmivc/jh7lYKQZlBi+H1d/0Wnsjn/fdqDhaiB8rO"
+            + "cDBJVT0rsx28ZoXsHTJbhC9/lyxFpxc1cAtUXUHPnPdYbEDOpgiUinb6lVkXO/QtVAtKeabN1Zn2fUIUd2UFT7+R+oICnjFQ"
+            + "Yu095pS5ckJUPKjhylnqCkmNXL7yN3e7UlkNXUSSVsOd2lrn1kr4htPN40qyoptLYB8uakj0dsU8xDjGY5CYAIAac8OIiWz7"
+            + "4NjasJIqOkCsuREIrFKOIAKDmmpN12MGROd7zPV6dgpQqdmzU3yWhzkhPGLaUHK74jJ5vH7vnCaKFyzIq+0ti5g1VMyHKOYU"
+            + "RQBpTZXXQZe0gLMHKUiNCkPtoy5wQbhQse9bbbbKlzTVuMB0paKqDdiKqIwg/bakpiI0SkdNaKs2Q8J5GZJKBiZo3WKIojcF"
+            + "+mJzI0LjtRI9pKQ+Qk4RAlStoxJ8xi2c10YdHIvcI2wjEk5PlaSP0U4Z/NRwvRRXPooq2Z+PrDUsMIRIq6YrmsIYAdssaQjj"
+            + "OknxqxQDUGr5wYIq3lzrBiaqOzTouLj7rF1XEcUt6qQI0sNUqTDKaGUFEVk/jRscyKVFsrppotRFqlxWPU2BqlflGMiyNWr5"
+            + "kIy4Zm1038WreFFKSEafM3ChSldjLDAM0EQOm4ZfnvJTZzZEHkk2Za/Uuj0FSSt1lVmH2ZwpIe0w0bwzSYarc6Y8cNZrdHYT"
+            + "Fup0GvAqpc4pqNX8IXLULauikkStJ6ZrJmi9XE+lEcLYmXuYBC6jPDAAMWcnKQzTyEFZ0TEJ1hvHlCQaAwYCeGaRXzrPLoIH"
+            + "6aGKXlioHqY+gQFogQ5hidOUVipqEkSVqIgn8ijUKxwx4h3lOj1i6uTUZKFLUn1+dSZROaI9B2tFlc58arKGycTYLS2tZrlH"
+            + "ZY21ehUo2QHNPSoKYCloJNdJTbqos5Qs8xM9jjFCNdfLlyhYfLesIVLOhjLBiSzCE7ElGgwCbUpkyDK/GniE5t1/aTaVBkny"
+            + "NhR7pzEwfbl9WhKJXNE+DYENYRLadf+tjIHVGRJg5LjPHNEZoZpGgZYgYkNC6wAS7sGkc+Ws/YowGnuKKqNnLsmxqu5A5YNU"
+            + "3ciO9kdQE+JbFKbDinB9ssTxUMKRVhXEiO+F9XS4sEi+gg4fGVSqo6NAqVHtDFBCyHfC8Gygk+NvXvsO25aHAY+5JZPCnqqb"
+            + "DkVg8JL176wyQyCRJKrxByVl+v34R7n5IyEqEDblro+hvyFUgjLuIASKZd0VIDaymp2CJLgVpNvLVbeVCI5s56Uw+VmIaVEw"
+            + "BpqGpTjHtRYTWAVAEtvmAh/zruLofEne4kRefiPf1ubQoljBnGMlUxjIJJFHbpWm4trVd6pUcG0D0nqHnYVnocMuVuyyPjsC"
+            + "p1h2WkNTX+bIrt2L0WKr6vnnKe2SyuuexaaolfRWfV+Z7QJLjNzG5JbuM5nI20ZIaBH93LgDETRkOzxIJVcEanUf4ow5xMRt"
+            + "ibYQkxdfPDP5Srv/te7D67oOBxAtcDk6tBR8jeXseMLCtxfXlxXtuvphZashKOHyUrYdbAmKyiJvITil2O4qt53YLwCN1riS"
+            + "KB+BT0Yq766rhidTnU5OfVvSCiEoNMPnFKTFdFa2QUCQMvXpqjSfvMIaghVR5QsPmE+K69CUK9SSK3fkVZyR6x0tqHRUrD1T"
+            + "CU8htzJTy81rKVao4uYH/nAk5qJnIvCDEKdirDoChFx7aRK8g26B2z6EtOC1D0Crgkaxa5HNVSgPnCTNaA1cGdFAYchqpmUZ"
+            + "pMERHPaLKmsttBuwKM2CJKN8UkEEkE0fL9V3ldTxilAgP11KCgESCr5WRRXGIAne+iokOQpdiCbTabEmypbOUCWKapXtYob5"
+            + "kkpu5dy2sJJbXYggQSTr2tU3YXXMIQ1eyPAI9havQgxpkMSkFbbltel0je2txXbe2Ube2gsMcL5/Y0dvrw1UHANU52Cw3aBQ"
+            + "lPKuBYxTSAuD/VvdoBQ0GV2uvlBGZM8J9TEyFl3It7IwufXpqQJYiMHlyyDaeyG+3iGbAcoVOyzkfmZUuAq0BHX2VsRAR6mf"
+            + "9XHQTaK7BQHRrPpQ4m4KoEcJXFKwPFSNPWRnj5SwayDKWHSch5GKYJpOZLZ5aWzZZTqOhf1Xsfim6sL69eKbBNNDld8kmB6n"
+            + "ACcB9FDsAfmCnPv+V5b7IKDqct+ldLDUwFsYhJXkh1UEYXnCOAJmQco7l+ruY8gdnyj9vT7lfW2yOwFTHeSTBChguoqfDi6H"
+            + "KRB05qKLz1pJwhQihL3crrfc/Tf9fv3VkMVb3d1QaG/nb4ZKBrfIug1Qj3Q5ZGBawL491BQZuMGLxMINLr6TeSuaK1Wli0mS"
+            + "qTXjOJ3fNCfVu7mYx3/mQpGZuHyBZhwCd9DwZDwKMcqiXgSICB5TWryGwjTFVKksyfLoGI0ckeREpNkYGa+UvwhXhCUpYIZ1"
+            + "8yyCSLWwx6CYB/D3KGAolYNL80o6YtuWf667vWM5H2/dcFUe0+imIe6D7aW9x4l5XftqRex2ADvkCKpunq0pEKi/D1fF0dRu"
+            + "dHcqHlNQLtMmLU/LFGnUhRnxCm5JeUadwYVf07P+L3uIrWpBVQEA";
         /* ===== END GENERATED topByType ===== */
+
+        /* Inflate the baked data: base64 -> gzip -> TSV rows of
+         * kind<TAB>key<TAB>value, fanned out into the five maps. */
+        byte[] rawData = android.util.Base64.decode(DATA_B64, android.util.Base64.DEFAULT);
+        java.util.zip.GZIPInputStream gzIn =
+            new java.util.zip.GZIPInputStream(new java.io.ByteArrayInputStream(rawData));
+        java.io.ByteArrayOutputStream dataBos = new java.io.ByteArrayOutputStream();
+        byte[] dataBuf = new byte[4096];
+        int dataN = gzIn.read(dataBuf);
+        while (dataN != -1) {
+            if (dataN > 0) { dataBos.write(dataBuf, 0, dataN); }
+            dataN = gzIn.read(dataBuf);
+        }
+        String[] dataRows = new String(dataBos.toByteArray(), "UTF-8").split("\n");
+        int dri = 0;
+        while (dri < dataRows.length) {
+            String[] kv = dataRows[dri].split("\t");
+            if (kv.length == 3) {
+                if (kv[0].equals("e")) { expansions.put(kv[1], kv[2]); }
+                else if (kv[0].equals("c")) { cpx.put(kv[1], kv[2]); }
+                else if (kv[0].equals("s")) { seTypes.put(kv[1], kv[2]); }
+                else if (kv[0].equals("t")) { topByType.put(kv[1], kv[2]); }
+                else if (kv[0].equals("b")) { budgetByType.put(kv[1], kv[2]); }
+            }
+            dri = dri + 1;
+        }
 
         /* Pattern to match @#keyword. or @#keyword[number] -- keyword may
          * contain hyphens for the raid command family. */

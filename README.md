@@ -37,8 +37,9 @@ CP-clause append, `raidn-` Nth pick, and the classic `{DAYS:n}` templates.
   (learnability guards), `GO_MOVES` (move inventory for prefix safety), and
   the type chart.
 - `new.java` — the generated single-file Tasker module (paste into a Tasker
-  Java Function action). The block between the GENERATED markers is
-  machine-written.
+  Java Function action). The precompiled data is baked as a gzip+base64
+  blob (~34 KB file total) that the runtime inflates; `baked.tsv` is its
+  human-readable twin for reviewing diffs.
 - `acceptance.py` — prints the exact expansion for any shortcut, parsed
   straight out of new.java: `python3 acceptance.py raid-dragon-steel`
 - `old.java` — the original pre-raid module, kept as reference.

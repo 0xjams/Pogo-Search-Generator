@@ -16,10 +16,15 @@ python3 transcode.py --apply new.java     # splice fresh data/expansions
 python3 acceptance.py raid-dragon-steel   # inspect any command's string
 ```
 
-- `transcode.py` — data + compiler. Emits, between the markers:
-  `expansions` (command key → final search string), `cpx` (variant repacked
-  with 8 chars reserved for a runtime `&cpN-`; only where it differs),
-  `seTypes` + `topByType`/`budgetByType` (feed the raidn- runtime).
+- `transcode.py` — data + compiler. Emits, between the markers, ONE
+  gzip+base64 blob (`DATA_B64`) holding TSV rows `kind<TAB>key<TAB>value`
+  (kinds: e=expansions, c=cpx — repacked with 8 chars reserved for a
+  runtime `&cpN-`, present only where it differs — s=seTypes,
+  t=topByType, b=budgetByType). The runtime inflates it via
+  android.util.Base64 + GZIPInputStream (keeps the Tasker paste ~34 KB;
+  plain literals were 115 KB and exceeded what Tasker's field takes).
+  `--apply` also writes `baked.tsv`, the tracked human-readable twin —
+  review data changes there, not in the blob.
 - `new.java` — hand-written runtime skeleton (~280 lines) + generated block.
   It is BOTH source and artifact: tracked in git on purpose; `--apply`
   patches in place and needs the markers to exist.
@@ -83,7 +88,8 @@ python3 acceptance.py raid-dragon-steel   # inspect any command's string
 (lookup-only), but when touching the java runtime, rebuild the harness:
 BeanShell 2.0b6 jar (maven: org.apache-extras.beanshell:bsh:2.0b6) +
 compiled stubs for `android.view.accessibility.AccessibilityNodeInfo`
-(records the set text), `android.os.Bundle`, `io.reactivex.functions
+(records the set text), `android.os.Bundle`, `android.util.Base64`
+(delegate to java.util.Base64 mime decoder), `io.reactivex.functions
 .Consumer`, plus a scripted `tasker` object; a driver script sources
 new.java and calls the registered Consumer, then diff its outputs against
 `acceptance.py` for the same inputs. When touching the compiler, capture a
