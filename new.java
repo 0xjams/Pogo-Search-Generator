@@ -663,7 +663,9 @@ pogoSearchReplacer = new Consumer() {
         StringBuffer result = new StringBuffer();
 
         while (matcher.find()) {
-            String keyword = matcher.group(1).toLowerCase();
+            /* Underscores are aliases for hyphens: @#raid_ice. works around
+             * keyboards whose autocorrect eats a hyphen before the dot. */
+            String keyword = matcher.group(1).toLowerCase().replace('_', '-');
             String paramStr = matcher.group(2);
 
             /* Bracket parameter: DAYS for the static templates, CP floor

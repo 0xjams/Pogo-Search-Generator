@@ -77,7 +77,8 @@ def expand_text(text, maps):
     templates = maps["templates"]
 
     def repl(m):
-        keyword = m.group(1).lower()
+        # Underscores alias hyphens (keyboard-autocorrect workaround).
+        keyword = m.group(1).lower().replace("_", "-")
         param = int(m.group(2)) if m.group(2) else 0
         template = templates.get(keyword)
 

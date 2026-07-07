@@ -18,6 +18,8 @@ field).
 | `[CP]` suffix | CP floor on raid/atk/attkr, e.g. `@#raid-fire[2500]` |
 
 Plus the original static templates (`pvp`, `transfer[days]`, `hundo`, ...).
+Underscores alias hyphens (`@#raid_ice.` == `@#raid-ice.`) for keyboards
+whose autocorrect eats a hyphen before the terminating dot.
 
 ## Architecture: compiled at build time
 
